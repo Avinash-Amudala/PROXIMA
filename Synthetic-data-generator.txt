@@ -1,0 +1,374 @@
+3) Synthetic Data Generator (Python)
+
+This generator intentionally creates:
+
+“good proxies” (early metrics tightly linked to long-term)
+
+“bad proxies” (early metrics confounded, noisy, or segment-inverted)
+
+segment-level sign flips (proxy positive but long-term negative in specific cohorts)
+
+# proxima/generator/simulate.py
+
+from __future__ import annotations
+import numpy as np
+import pandas as pd
+
+def sigmoid(x):
+    return 1.0 / (1.0 + np.exp(-x))
+
+def generate_synthetic_experiments(
+    n_users: int = 200_000,
+    n_experiments: int = 40,
+    seed: int = 7,
+) -> pd.DataFrame:
+    """
+    Generates user-level rows across multiple experiments with:
+      - segments (region, device, tenure)
+      - randomized treatment assignment
+      - early metrics (candidate proxies)
+      - long-term outcome (binary retention-like)
+    Also bakes in failure modes:
+      - segment-level sign flips where early metric uplift disagrees with long-term uplift.
+    """
+    rng = np.random.default_rng(seed)
+
+    # Define segment spaces
+    regions = np.array(["NA", "LATAM", "EU", "IN"])
+    devices = np.array(["TV", "Mobile", "Desktop"])
+    tenures = np.array(["New", "Existing"])
+
+    # Sample experiment ids
+    exp_id = rng.integers(0, n_experiments, size=n_users)
+
+    # Sample segments
+    region = rng.choice(regions, size=n_users, p=[0.35, 0.20, 0.25, 0.20])
+    device = rng.choice(devices, size=n_users, p=[0.45, 0.45, 0.10])
+    tenure = rng.choice(tenures, size=n_users, p=[0.30, 0.70])
+
+    # Treatment assignment (50/50 randomized within each experiment)
+    # (In real logs you'd ensure randomization per exp; here it's fine.)
+    treatment = rng.integers(0, 2, size=n_users)
+
+    # Build segment embeddings (simple numeric encodings)
+    region_w = pd.Series(region).map({"NA": 0.2, "LATAM": -0.1, "EU": 0.05, "IN": -0.15}).to_numpy()
+    device_w = pd.Series(device).map({"TV": 0.25, "Mobile": -0.05, "Desktop": 0.0}).to_numpy()
+    tenure_w = pd.Series(tenure).map({"New": -0.1, "Existing": 0.1}).to_numpy()
+
+    # Experiment-level base treatment effect (heterogeneous across experiments)
+    # Some experiments genuinely improve long-term, others harm it.
+    exp_tau = rng.normal(0.0, 0.12, size=n_experiments)  # long-term uplift tendency
+    exp_bias = rng.normal(0.0, 0.08, size=n_experiments) # baseline shift per experiment
+
+    # Segment interaction with treatment (heterogeneous treatment effects)
+    # E.g., Mobile/New users respond differently
+    seg_tau = (
+        0.06 * (device == "TV").astype(float)
+        - 0.05 * (device == "Mobile").astype(float)
+        - 0.03 * (region == "IN").astype(float)
+        + 0.03 * (tenure == "Existing").astype(float)
+    )
+
+    # Inject a "proxy failure" cohort:
+    # For Mobile + IN + New, treatment increases early engagement but hurts long-term retention.
+    failure_cohort = ((device == "Mobile") & (region == "IN") & (tenure == "New"))
+    # Long-term effect penalty for this cohort when treated:
+    failure_long_penalty = -0.25
+
+    # Latent user "satisfaction" and "engagement propensity"
+    # satisfaction drives long-term; engagement drives early metrics
+    user_sat = rng.normal(0.0, 1.0, size=n_users) + region_w + device_w + tenure_w
+    user_eng = rng.normal(0.0, 1.0, size=n_users) + 0.5 * device_w - 0.2 * tenure_w
+
+    # Construct long-term log-odds
+    base_logit = (
+        -0.3
+        + 0.7 * user_sat
+        + 0.15 * user_eng
+        + exp_bias[exp_id]
+    )
+
+    # True long-term treatment effect in log-odds
+    tau_long = exp_tau[exp_id] + seg_tau
+    tau_long = tau_long + failure_long_penalty * failure_cohort.astype(float)
+
+    long_logit = base_logit + treatment * tau_long
+    long_prob = sigmoid(long_logit)
+    long_retained = rng.binomial(1, long_prob, size=n_users)
+
+    # Early metrics: watch_time_1d, starts_1d, ctr_1d, rebuffer_rate_1d
+    # We'll make watch_time_1d a generally good proxy, but inject failure mode.
+    # We also create one "misleading proxy" that looks good globally but fails in segments.
+
+    noise = rng.normal(0.0, 1.0, size=n_users)
+
+    # Good-ish proxy: early_watch_min correlates with satisfaction and engagement
+    early_watch_min = (
+        25
+        + 10 * user_eng
+        + 6 * user_sat
+        + 8 * treatment * (exp_tau[exp_id] + 0.3 * seg_tau)  # generally aligned
+        + 6 * treatment * failure_cohort.astype(float)       # BUT: boosts early engagement in failure cohort
+        + 5 * noise
+    )
+    early_watch_min = np.clip(early_watch_min, 0, None)
+
+    # Another proxy: early_starts (weaker)
+    early_starts = (
+        1.8
+        + 0.7 * sigmoid(user_eng)
+        + 0.2 * sigmoid(user_sat)
+        + 0.4 * treatment * (exp_tau[exp_id] + 0.2 * seg_tau)
+        + 0.6 * treatment * failure_cohort.astype(float)   # also inflated in failure cohort
+        + 0.3 * rng.normal(0, 1, size=n_users)
+    )
+    early_starts = np.clip(early_starts, 0, None)
+
+    # CTR proxy: can be "gamed" (treatment increases clicks without improving retention)
+    # Make it partially anti-correlated with true satisfaction in some segments
+    ctr_base = sigmoid(0.3 * user_eng - 0.35 * user_sat + 0.1 * rng.normal(0, 1, size=n_users))
+    early_ctr = ctr_base + 0.06 * treatment + 0.04 * (device == "Mobile").astype(float) * treatment
+    early_ctr = np.clip(early_ctr, 0, 1)
+
+    # Rebuffer rate: negative QoE metric (lower is better); correlated with device/region
+    rebuffer_rate = sigmoid(-0.2 * user_sat + 0.25 * (region == "IN").astype(float) + 0.15 * (device == "Mobile").astype(float) + 0.1 * rng.normal(0, 1, size=n_users))
+    # Treatment sometimes improves QoE but may not impact retention directly
+    rebuffer_rate = np.clip(rebuffer_rate - 0.03 * treatment * (device == "TV").astype(float), 0, 1)
+
+    df = pd.DataFrame({
+        "exp_id": exp_id,
+        "region": region,
+        "device": device,
+        "tenure": tenure,
+        "treatment": treatment,
+        "early_watch_min": early_watch_min,
+        "early_starts": early_starts,
+        "early_ctr": early_ctr,
+        "rebuffer_rate": rebuffer_rate,
+        "long_retained": long_retained,
+        # Hidden columns helpful for evaluation/debugging (keep for research; drop for product demo)
+        "failure_cohort": failure_cohort.astype(int),
+    })
+
+    return df
+
+4) Baseline Model + Proxy Scoring + Fragility Detection
+
+This baseline does not require fancy libraries beyond pandas + sklearn.
+
+What it does:
+
+estimates per-experiment treatment effects for long-term and each proxy
+
+computes reliability scores
+
+detects segment sign flips (fragility)
+
+# proxima/models/baseline.py
+
+from __future__ import annotations
+import numpy as np
+import pandas as pd
+from dataclasses import dataclass
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score
+
+EARLY_METRICS = ["early_watch_min", "early_starts", "early_ctr", "rebuffer_rate"]
+
+@dataclass
+class ProxyScore:
+    metric: str
+    reliability: float
+    effect_corr: float
+    directional_accuracy: float
+    fragility_rate: float  # fraction of segments with sign flip vs global
+
+def compute_diff_in_means_effect(df: pd.DataFrame, y_col: str) -> pd.DataFrame:
+    """
+    Compute experiment-level treatment effect using difference in means:
+      effect(exp) = mean(y|t=1) - mean(y|t=0)
+    """
+    g = df.groupby(["exp_id", "treatment"])[y_col].mean().unstack()
+    g = g.rename(columns={0: "control_mean", 1: "treat_mean"})
+    g["effect"] = g["treat_mean"] - g["control_mean"]
+    g = g.reset_index()
+    return g[["exp_id", "effect"]].rename(columns={"effect": f"delta_{y_col}"})
+
+
+def compute_segment_effects(df: pd.DataFrame, y_col: str, segment_cols: list[str]) -> pd.DataFrame:
+    """
+    Segment-level effects: effect(exp, segment) = mean(y|t=1) - mean(y|t=0)
+    """
+    g = df.groupby(["exp_id", *segment_cols, "treatment"])[y_col].mean().unstack()
+    g = g.rename(columns={0: "control_mean", 1: "treat_mean"})
+    g["effect"] = g["treat_mean"] - g["control_mean"]
+    g = g.reset_index()
+    return g[["exp_id", *segment_cols, "effect"]].rename(columns={"effect": f"delta_{y_col}"})
+
+
+def train_long_term_model(df: pd.DataFrame) -> tuple[Pipeline, float]:
+    """
+    Simple baseline: logistic regression predicting long_retained from:
+      segments + treatment + early metrics
+    """
+    X = df[["region", "device", "tenure", "treatment", *EARLY_METRICS]]
+    y = df["long_retained"]
+
+    cat_cols = ["region", "device", "tenure"]
+    num_cols = ["treatment", *EARLY_METRICS]
+
+    pre = ColumnTransformer(
+        transformers=[
+            ("cat", OneHotEncoder(handle_unknown="ignore"), cat_cols),
+            ("num", "passthrough", num_cols),
+        ]
+    )
+
+    clf = LogisticRegression(max_iter=500)
+
+    model = Pipeline(steps=[("pre", pre), ("clf", clf)])
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42, stratify=y)
+    model.fit(X_train, y_train)
+
+    proba = model.predict_proba(X_test)[:, 1]
+    auc = roc_auc_score(y_test, proba)
+    return model, auc
+
+
+def score_proxies(df: pd.DataFrame, segment_cols: list[str] = ["region", "device", "tenure"]) -> tuple[pd.DataFrame, list[ProxyScore]]:
+    """
+    Scores each early metric as a proxy for long_retained uplift.
+
+    Reliability is a composite:
+      0.6 * effect_correlation + 0.2 * directional_accuracy + 0.2 * (1 - fragility_rate)
+    """
+    # Experiment-level long-term effect
+    long_eff = compute_diff_in_means_effect(df, "long_retained")
+
+    proxy_scores: list[ProxyScore] = []
+    details_rows = []
+
+    # Precompute global long-term sign per experiment
+    long_by_exp = long_eff.set_index("exp_id")["delta_long_retained"]
+
+    for m in EARLY_METRICS:
+        m_eff = compute_diff_in_means_effect(df, m).set_index("exp_id")[f"delta_{m}"]
+
+        # Align
+        aligned = pd.concat([long_by_exp, m_eff], axis=1, join="inner").dropna()
+        aligned.columns = ["delta_long", "delta_proxy"]
+
+        # effect correlation
+        if aligned["delta_proxy"].std() < 1e-12 or aligned["delta_long"].std() < 1e-12:
+            corr = 0.0
+        else:
+            corr = float(aligned["delta_proxy"].corr(aligned["delta_long"]))
+
+        # directional accuracy (sign match)
+        dir_acc = float((np.sign(aligned["delta_proxy"]) == np.sign(aligned["delta_long"])).mean())
+
+        # fragility: segment-level sign flips
+        seg_long = compute_segment_effects(df, "long_retained", segment_cols)
+        seg_proxy = compute_segment_effects(df, m, segment_cols)
+
+        seg = seg_long.merge(seg_proxy, on=["exp_id", *segment_cols], how="inner", suffixes=("_long", "_proxy"))
+        # attach global signs
+        seg["global_long_sign"] = np.sign(seg["exp_id"].map(long_by_exp))
+        seg["proxy_sign"] = np.sign(seg[f"delta_{m}"])
+        # "flip" if proxy suggests opposite direction than global long-term
+        seg["flip"] = (seg["proxy_sign"] != seg["global_long_sign"]).astype(int)
+        fragility_rate = float(seg["flip"].mean())
+
+        # Reliability composite (normalize corr to [0,1] via (corr+1)/2)
+        corr01 = (corr + 1.0) / 2.0
+        reliability = float(0.6 * corr01 + 0.2 * dir_acc + 0.2 * (1.0 - fragility_rate))
+
+        proxy_scores.append(ProxyScore(
+            metric=m,
+            reliability=reliability,
+            effect_corr=corr,
+            directional_accuracy=dir_acc,
+            fragility_rate=fragility_rate
+        ))
+
+        details_rows.append({
+            "metric": m,
+            "reliability": reliability,
+            "effect_corr": corr,
+            "directional_accuracy": dir_acc,
+            "fragility_rate": fragility_rate,
+            "n_experiments_scored": int(aligned.shape[0]),
+        })
+
+    details = pd.DataFrame(details_rows).sort_values("reliability", ascending=False).reset_index(drop=True)
+    return details, proxy_scores
+
+
+def find_top_fragility_segments(
+    df: pd.DataFrame,
+    proxy_metric: str,
+    segment_cols: list[str] = ["region", "device", "tenure"],
+    min_count: int = 500
+) -> pd.DataFrame:
+    """
+    Returns segments where proxy sign differs from long-term sign most often.
+    """
+    long_eff = compute_diff_in_means_effect(df, "long_retained").set_index("exp_id")["delta_long_retained"]
+    seg_long = compute_segment_effects(df, "long_retained", segment_cols)
+    seg_proxy = compute_segment_effects(df, proxy_metric, segment_cols)
+    seg = seg_long.merge(seg_proxy, on=["exp_id", *segment_cols], how="inner")
+
+    seg["global_long_sign"] = np.sign(seg["exp_id"].map(long_eff))
+    seg["proxy_sign"] = np.sign(seg[f"delta_{proxy_metric}"])
+    seg["flip"] = (seg["proxy_sign"] != seg["global_long_sign"]).astype(int)
+
+    # count users per (exp, segment) for filtering
+    counts = df.groupby(["exp_id", *segment_cols]).size().reset_index(name="n")
+    seg = seg.merge(counts, on=["exp_id", *segment_cols], how="inner")
+    seg = seg[seg["n"] >= min_count]
+
+    out = seg.groupby(segment_cols).agg(
+        flip_rate=("flip", "mean"),
+        n_cells=("flip", "size"),
+        avg_cell_n=("n", "mean"),
+    ).reset_index().sort_values("flip_rate", ascending=False)
+
+    return out
+
+Example “run” script
+# proxima/run_mvp.py
+
+from generator.simulate import generate_synthetic_experiments
+from models.baseline import train_long_term_model, score_proxies, find_top_fragility_segments
+
+def main():
+    df = generate_synthetic_experiments(n_users=250_000, n_experiments=50, seed=7)
+
+    model, auc = train_long_term_model(df)
+    print(f"[Long-term model] ROC-AUC: {auc:.4f}")
+
+    details, _ = score_proxies(df)
+    print("\n[Proxy ranking]")
+    print(details)
+
+    # Show fragile segments for the top proxy (or a chosen one)
+    top_metric = details.iloc[0]["metric"]
+    frag = find_top_fragility_segments(df, top_metric, min_count=400)
+    print(f"\n[Most fragile segments for {top_metric}]")
+    print(frag.head(15))
+
+if __name__ == "__main__":
+    main()
+
+5) Patent Abstract Draft (Provisional-ready style)
+
+Title:
+Systems and Methods for Selecting Reliable Proxy Metrics for Online Experiments under Distribution Shift
+
+Abstract:
+Online controlled experiments frequently rely on long-horizon outcome metrics whose observation requires substantial time, delaying product decisions. To accelerate decision-making, short-horizon proxy metrics are often used, but such proxies may be unreliable, particularly under distribution shift across user cohorts, devices, geographies, or experiment types. Described herein are systems and methods that ingest historical experiment data comprising randomized treatment assignments, segment attributes, short-horizon measurements, and long-horizon outcomes, and automatically identify proxy metrics that reliably predict long-horizon treatment effects. The disclosed system computes, for each candidate proxy metric, a reliability score that integrates (i) agreement between proxy-induced treatment effects and long-horizon treatment effects across experiments, (ii) stability of proxy performance across segments and temporal slices, and (iii) transportability of proxy validity to shifted cohort distributions. Additionally, the system detects proxy fragility by identifying cohort-specific divergences including sign reversals where proxy effects conflict with long-horizon effects, and generates warnings indicating segments for which the proxy is not trustworthy. The system may further recommend proxy metrics for new experiments based on similarity of segment composition and experiment conditions, and provide an interface that ranks proxies, quantifies uncertainty, and flags failure risks, thereby enabling faster and safer experiment decisions.

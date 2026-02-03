@@ -1,0 +1,187 @@
+1) Design Doc — PROXIMA (Proxy Metric Intelligence)
+1.1 Background
+
+Online experimentation (A/B testing) relies on long-term metrics (e.g., 30-day retention, long-term engagement) that are slow to observe. Teams therefore use short-term proxy metrics (Day-1 watch time, starts, CTR). But proxies often fail under:
+
+segment shifts (device, region, tenure)
+
+novel treatments (new UI patterns, content presentation changes)
+
+metric gaming (short-term increases without long-term benefit)
+
+Goal: automatically learn which early metrics are reliable proxies for long-term impact, and warn when a proxy is likely to be misleading for specific segments.
+
+1.2 Objective
+
+Given historical experiment outcomes:
+
+estimate which early metrics best predict long-term uplift,
+
+quantify reliability (confidence + stability),
+
+detect proxy fragility (segment sign flips / transport failure),
+
+provide “recommended proxies” + “do-not-trust” warnings.
+
+1.3 Definitions
+
+Experiment: a randomized treatment assignment affecting user experience.
+
+Early metrics: short-term measurements available quickly (minutes/hours/day).
+
+Long-term metric: outcome observed later (e.g., 7–30 day retention or long-term viewing).
+
+Proxy metric: early metric used to decide whether to ship.
+
+Proxy reliability: how accurately an early metric predicts long-term treatment effect.
+
+Segment fragility: proxy appears valid globally but fails in subpopulations (Simpson’s paradox).
+
+1.4 System outputs
+
+For each experiment (and globally across experiments):
+
+Ranked list of proxy metrics
+
+Reliability score ∈ [0, 1]
+
+Confidence interval / uncertainty
+
+Segment fragility index
+
+Warning messages (e.g., “sign flip for Mobile + NewUsers”)
+
+1.5 Architecture (MVP → v1)
+
+MVP (what you build first):
+
+Synthetic experiment dataset generator
+
+Proxy scoring pipeline (offline)
+
+Simple dashboard (or notebook report)
+
+v1:
+
+Support real public datasets
+
+UI dashboard (Streamlit/React)
+
+Model registry + experiment tracking
+
+Pipeline:
+
+Ingest experiment-level dataset (user-level rows)
+
+Learn long-term outcome model
+
+Estimate experiment treatment effect for long-term and each proxy
+
+Score reliability per proxy:
+
+correlation with long-term effects
+
+cross-segment stability
+
+out-of-segment degradation
+
+Detect fragility:
+
+sign flips
+
+high variance across cohorts
+
+Report recommended proxies + warnings
+
+1.6 MVP evaluation metrics (paper-worthy)
+
+At the experiment level:
+
+Proxy effect correlation: Corr(Δproxy, Δlong)
+
+Directional accuracy: % experiments where sign(Δproxy) == sign(Δlong)
+
+Top-k selection accuracy: how often top-ranked proxy matches best true proxy
+
+Segment fragility detection:
+
+precision/recall for sign-flip segments
+
+false-positive rate (don’t spam warnings)
+
+Decision simulation:
+
+If we “ship” when proxy says uplift > 0, what is:
+
+long-term win-rate?
+
+regret vs using true long-term metric?
+
+1.7 Key novelty hooks (for patent/paper)
+
+Reliability score that combines:
+
+effect correlation + stability + transport across segments
+
+Automated detection of proxy deception:
+
+Simpson’s paradox and sign flips
+
+segment-level divergence warnings
+
+“Proxy recommendation policy”:
+
+pick proxies conditional on segment distribution of the experiment
+
+1.8 Roadmap
+
+Week 1–2: generator + baselines + scoring report
+Week 3–4: segment fragility + decision simulation
+Week 5–6: dashboard + case studies + write-up
+Week 7–8: paper draft + patent provisional package
+
+2) Requirements Spec
+2.1 Functional requirements
+
+FR1. Generate synthetic A/B data with:
+
+multiple experiments
+
+multiple segments
+
+heterogeneous treatment effects
+
+early metrics and long-term outcome
+
+FR2. Compute per-experiment treatment effects for:
+
+long-term outcome
+
+each early metric (candidate proxy)
+
+FR3. Compute proxy reliability score per early metric:
+
+effect correlation to long-term across experiments
+
+stability across segments
+
+FR4. Detect proxy fragility:
+
+segment sign flips vs global sign
+
+high variance across segments
+
+FR5. Produce outputs:
+
+ranked proxy list
+
+warnings list
+
+plots/tables for paper
+
+2.2 Non-functional requirements
+
+NFR1. Reproducible runs (seeded)
+NFR2. Runs on laptop within minutes (MVP)
+NFR3. Clear modular design (generator/model/eval separated)
+NFR4. Extensible to real datasets
