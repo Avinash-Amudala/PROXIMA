@@ -8,6 +8,10 @@
 
 ---
 
+## 🎥 Dashboard Demo
+
+![PROXIMA Dashboard Demo](docs/Proxima-intro.gif)
+
 ## 🎯 Overview
 
 PROXIMA (Proxy Metric Intelligence) is a research system that addresses a critical challenge in online experimentation: **How do we know if early metrics are reliable proxies for long-term outcomes?**
