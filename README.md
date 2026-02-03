@@ -176,13 +176,13 @@ flowchart TD
 
     NextExp --> ForEachExp
 
-    ForEachExp -->|No| ComputeCorr[Compute Correlation<br/>ρ = corr(proxy, long)]
+    ForEachExp -->|No| ComputeCorr[Compute Correlation<br/>rho = corr_proxy_long]
 
     ComputeCorr --> ComputeDA[Compute Directional<br/>Accuracy]
 
     ComputeDA --> ComputeFR[Compute Fragility<br/>Rate]
 
-    ComputeFR --> CompositeScore[Composite Score:<br/>R = 0.6ρ + 0.2DA + 0.2(1-FR)]
+    ComputeFR --> CompositeScore[Composite Score:<br/>R = 0.6*rho + 0.2*DA + 0.2*(1-FR)]
 
     CompositeScore --> SimDecisions[Simulate Decisions]
 
