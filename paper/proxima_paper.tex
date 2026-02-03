@@ -82,6 +82,13 @@ Recent work on heterogeneous treatment effects \cite{athey2016recursive,kunzel20
 
 \section{Method}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/high_level_arch.png}
+\caption{High-level architecture of the PROXIMA system. Historical A/B test data is transformed into proxy and long-term metrics, processed by the PROXIMA core engine, and exposed via an API and dashboard for analysis and decision support.}
+\label{fig:architecture}
+\end{figure*}
+
 \subsection{Problem Formalization}
 
 Let:
@@ -162,6 +169,40 @@ Metrics:
     \item \textbf{False negative rate}: Don't ship when should
     \item \textbf{Regret}: Expected loss from proxy-based decisions
 \end{itemize}
+
+\begin{figure*}[t]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/proxima_dataflow.png}
+\caption{Data flow from raw logs to experiment-level proxy and long-term metrics.}
+\label{fig:dataflow}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/proxima_algo_flow.png}
+\caption{Algorithmic flow for composite reliability scoring and fragility detection.}
+\label{fig:algo_flow}
+\end{subfigure}
+
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/proxima_simulation_flow.png}
+\caption{Decision simulation pipeline comparing proxy-based and oracle policies.}
+\label{fig:simulation_flow}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/proxima_fragility_decision.png}
+\caption{Fragility detection and segment-level decision analysis in PROXIMA.}
+\label{fig:fragility_decision}
+\end{subfigure}
+
+\caption{End-to-end PROXIMA workflows: data processing, composite scoring, decision simulation, and fragility analysis.}
+\label{fig:method_flows}
+\end{figure*}
 
 \section{Experimental Setup}
 
@@ -342,7 +383,26 @@ KuaiRec & 7.2K & 0.62 & 0.21 & 0.97 & 0.97 & 0.68 \\
 \end{tabular}
 \end{table}
 
-\textbf{Insight:} Early engagement metrics are consistently reliable across domains (advertising and recommendations), suggesting a general principle: \textbf{user engagement is a robust proxy for long-term value}.
+\textbf{Insight:} Early engagement metrics are consistently reliable across domains (advertising and recommendations), suggesting a general principle: \textbf{user engagement is a robust proxy for long-term value}. Figure~\ref{fig:proxy_reliability} visualizes the composite reliability and its components, while Figure~\ref{fig:decision_simulation} summarizes decision-level win rates and error profiles.
+
+\begin{figure*}[t]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/figure1_proxy_reliability.png}
+\caption{Proxy metric reliability and components (correlation, directional accuracy, fragility) across Criteo and KuaiRec.}
+\label{fig:proxy_reliability}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/figure2_decision_simulation.png}
+\caption{Decision simulation outcomes (win rate, false positives/negatives, regret) for proxy-based vs. oracle policies.}
+\label{fig:decision_simulation}
+\end{subfigure}
+\caption{Summary of proxy reliability and decision quality across both real-world datasets.}
+\label{fig:results_summary}
+\end{figure*}
 
 \subsection{Comparison to Baselines}
 
