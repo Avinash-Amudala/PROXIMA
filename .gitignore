@@ -86,4 +86,23 @@ figures/
 *.pdf
 !docs/figures/*.png
 !docs/figures/*.pdf
+!paper/figures/*.png
+!paper/figures/*.pdf
+
+# Unwanted documentation files
+GITHUB_PUSH_SUCCESS.md
+PATENT_FILING_PLAN.md
+test_api.py
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.out
+*.toc
+*.lof
+*.lot
 

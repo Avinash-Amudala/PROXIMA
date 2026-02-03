@@ -30,6 +30,257 @@ This enables **segment-aware proxy selection** that accounts for distribution sh
 
 ---
 
+## 📊 System Architecture
+
+### High-Level Architecture
+
+```mermaid
+graph TB
+    subgraph Input["📥 Input Data"]
+        A[Historical A/B Tests]
+        B[User Segments]
+        C[Proxy Metrics]
+        D[Long-term Metrics]
+    end
+
+    subgraph Core["🔬 PROXIMA Core Engine"]
+        E[Data Generator]
+        F[Treatment Effect Estimator]
+        G[Proxy Scorer]
+        H[Fragility Detector]
+        I[Decision Simulator]
+    end
+
+    subgraph Output["📤 Outputs"]
+        J[Reliability Scores]
+        K[Fragility Reports]
+        L[Decision Quality Metrics]
+        M[Visualizations]
+    end
+
+    subgraph Interface["🖥️ User Interfaces"]
+        N[REST API]
+        O[React Dashboard]
+        P[CLI Tools]
+    end
+
+    A --> E
+    B --> E
+    C --> E
+    D --> E
+
+    E --> F
+    F --> G
+    F --> H
+    G --> I
+    H --> I
+
+    G --> J
+    H --> K
+    I --> L
+    J --> M
+    K --> M
+    L --> M
+
+    J --> N
+    K --> N
+    L --> N
+    M --> N
+
+    N --> O
+    N --> P
+
+    style Input fill:#e1f5ff
+    style Core fill:#fff4e1
+    style Output fill:#e8f5e9
+    style Interface fill:#f3e5f5
+```
+
+### Data Flow Pipeline
+
+```mermaid
+flowchart LR
+    subgraph Stage1["Stage 1: Data Preparation"]
+        A1[Raw Experiment Data] --> A2[Feature Engineering]
+        A2 --> A3[Segment Definition]
+        A3 --> A4[Train/Test Split]
+    end
+
+    subgraph Stage2["Stage 2: Effect Estimation"]
+        B1[Treatment Effect<br/>Proxy Metrics]
+        B2[Treatment Effect<br/>Long-term Metrics]
+        B3[Segment-level Effects]
+    end
+
+    subgraph Stage3["Stage 3: Proxy Scoring"]
+        C1[Correlation Analysis]
+        C2[Directional Accuracy]
+        C3[Fragility Detection]
+        C4[Composite Score]
+    end
+
+    subgraph Stage4["Stage 4: Validation"]
+        D1[Decision Simulation]
+        D2[Win Rate Analysis]
+        D3[Regret Calculation]
+        D4[Statistical Tests]
+    end
+
+    A4 --> B1
+    A4 --> B2
+    A4 --> B3
+
+    B1 --> C1
+    B2 --> C1
+    B1 --> C2
+    B2 --> C2
+    B3 --> C3
+
+    C1 --> C4
+    C2 --> C4
+    C3 --> C4
+
+    C4 --> D1
+    D1 --> D2
+    D1 --> D3
+    D2 --> D4
+
+    style Stage1 fill:#e3f2fd
+    style Stage2 fill:#fff3e0
+    style Stage3 fill:#f1f8e9
+    style Stage4 fill:#fce4ec
+```
+
+### Algorithm Flow
+
+```mermaid
+flowchart TD
+    Start([Start: Historical Experiments]) --> LoadData[Load Experiment Data]
+
+    LoadData --> ForEachExp{For Each<br/>Experiment}
+
+    ForEachExp -->|Yes| EstimateProxy[Estimate Proxy<br/>Treatment Effect]
+    EstimateProxy --> EstimateLong[Estimate Long-term<br/>Treatment Effect]
+
+    EstimateLong --> ForEachSeg{For Each<br/>Segment}
+
+    ForEachSeg -->|Yes| SegEffect[Compute Segment<br/>Treatment Effects]
+    SegEffect --> CheckFlip{Sign Flip?}
+
+    CheckFlip -->|Yes| RecordFragile[Record Fragile<br/>Segment]
+    CheckFlip -->|No| NextSeg[Next Segment]
+    RecordFragile --> NextSeg
+
+    NextSeg --> ForEachSeg
+    ForEachSeg -->|No| NextExp[Next Experiment]
+
+    NextExp --> ForEachExp
+
+    ForEachExp -->|No| ComputeCorr[Compute Correlation<br/>ρ = corr(proxy, long)]
+
+    ComputeCorr --> ComputeDA[Compute Directional<br/>Accuracy]
+
+    ComputeDA --> ComputeFR[Compute Fragility<br/>Rate]
+
+    ComputeFR --> CompositeScore[Composite Score:<br/>R = 0.6ρ + 0.2DA + 0.2(1-FR)]
+
+    CompositeScore --> SimDecisions[Simulate Decisions]
+
+    SimDecisions --> WinRate[Calculate Win Rate]
+
+    WinRate --> Output([Output: Reliability<br/>Scores & Reports])
+
+    style Start fill:#4caf50,color:#fff
+    style Output fill:#2196f3,color:#fff
+    style CompositeScore fill:#ff9800,color:#fff
+    style CheckFlip fill:#f44336,color:#fff
+```
+
+### Decision Simulation Process
+
+```mermaid
+sequenceDiagram
+    participant Exp as Experiment
+    participant Proxy as Proxy Metric
+    participant Oracle as Long-term Metric
+    participant Sim as Decision Simulator
+    participant Report as Report Generator
+
+    Exp->>Proxy: Measure early effect
+    Exp->>Oracle: Measure long-term effect
+
+    Proxy->>Sim: Proxy effect = +0.05
+    Note over Sim: Decision: Ship if > 0
+    Sim->>Sim: Proxy says: SHIP ✓
+
+    Oracle->>Sim: True effect = +0.03
+    Note over Sim: Oracle says: SHIP ✓
+
+    Sim->>Sim: Compare decisions
+    alt Decisions Match
+        Sim->>Report: Win! (Correct decision)
+    else Decisions Differ
+        Sim->>Report: Loss! (Wrong decision)
+    end
+
+    Report->>Report: Aggregate across experiments
+    Report->>Report: Calculate win rate
+    Report-->>Exp: Final reliability score
+```
+
+### Fragility Detection Mechanism
+
+```mermaid
+graph TD
+    subgraph Global["Global Level"]
+        A[Overall Treatment Effect<br/>Proxy: +0.10<br/>Long-term: +0.08]
+    end
+
+    subgraph Segments["Segment Level Analysis"]
+        B1[Segment 1: New Users<br/>Proxy: +0.15<br/>Long-term: +0.12<br/>✓ Same sign]
+
+        B2[Segment 2: Power Users<br/>Proxy: +0.08<br/>Long-term: +0.10<br/>✓ Same sign]
+
+        B3[Segment 3: Mobile Users<br/>Proxy: +0.05<br/>Long-term: -0.03<br/>⚠️ SIGN FLIP!]
+
+        B4[Segment 4: Desktop Users<br/>Proxy: +0.12<br/>Long-term: +0.15<br/>✓ Same sign]
+    end
+
+    subgraph Detection["Fragility Detection"]
+        C[Count Sign Flips: 1/4 = 25%]
+        D[Fragility Rate = 0.25]
+        E{Fragility > 0.1?}
+    end
+
+    subgraph Action["Action"]
+        F[⚠️ WARNING:<br/>Proxy unreliable<br/>for Mobile Users]
+        G[✓ Proxy reliable<br/>overall]
+    end
+
+    A --> B1
+    A --> B2
+    A --> B3
+    A --> B4
+
+    B1 --> C
+    B2 --> C
+    B3 --> C
+    B4 --> C
+
+    C --> D
+    D --> E
+
+    E -->|Yes| F
+    E -->|No| G
+
+    style A fill:#4caf50,color:#fff
+    style B3 fill:#f44336,color:#fff
+    style F fill:#ff9800,color:#fff
+    style G fill:#4caf50,color:#fff
+```
+
+---
+
 ## 🚀 Quick Start
 
 ### Installation
