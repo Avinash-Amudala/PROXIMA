@@ -476,6 +476,15 @@ pytest tests/test_baseline.py -v
 
 ---
 
+## 📄 Paper
+
+**System and Method for Reliability Scoring of Proxy Metrics in Experiments**
+Avinash Amudala (2026)
+
+📌 DOI: [https://doi.org/10.5281/zenodo.18566674](https://doi.org/10.5281/zenodo.18566674)
+
+---
+
 ## 🎓 Citation
 
 If you use PROXIMA in your research, please cite:
