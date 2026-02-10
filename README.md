@@ -282,13 +282,13 @@ graph TD
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (2 Minutes)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/Avi9618/PROXIMA.git
+git clone https://github.com/Avinash-Amudala/PROXIMA.git
 cd PROXIMA
 
 # Install Python dependencies
@@ -323,6 +323,37 @@ npm run dev
 
 # Open browser to http://localhost:5173
 ```
+
+---
+
+## 🔬 Reproduce Paper Results
+
+To reproduce all figures and tables from the paper:
+
+```bash
+# One command to regenerate all paper results
+python scripts/reproduce_all.py
+
+# This will:
+# 1. Run synthetic data experiments (seed=42 for reproducibility)
+# 2. Generate proxy reliability scores
+# 3. Run decision simulations
+# 4. Create all paper figures in outputs/paper_figures/
+```
+
+**Expected outputs:**
+- `outputs/paper_figures/figure1_proxy_reliability.png` - Reliability scores comparison
+- `outputs/paper_figures/figure2_decision_simulation.png` - Decision quality results
+- `outputs/paper_figures/summary_table.csv` - All numerical results
+
+For real dataset reproduction (requires downloading datasets):
+```bash
+# See docs/REAL_DATASETS.md for dataset download instructions
+python scripts/integrate_criteo.py   # Criteo Uplift dataset
+python scripts/integrate_kuairec.py  # KuaiRec dataset
+```
+
+See [ARTIFACT.md](ARTIFACT.md) for complete reproduction instructions.
 
 ---
 
