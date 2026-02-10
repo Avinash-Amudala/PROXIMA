@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "PROXIMA: Proxy Metric Intelligence for Online Experiments"
+authors:
+  - family-names: Amudala
+    given-names: Avinash
+doi: 10.5281/zenodo.18566674
+date-released: 2026-02-09
+repository-code: https://github.com/Avinash-Amudala/PROXIMA
+license: MIT
