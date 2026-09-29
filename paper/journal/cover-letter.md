@@ -6,7 +6,7 @@ The manuscript describes an auditable diagnostic for proxy metrics in online con
 
 An earlier version is available as arXiv:2604.14352. This submission substantially revises its definitions, implementation, references and numerical evaluation. The earlier headline results are replaced, and the revised manuscript does not present generated recommendation outcomes as independent real-world validation. Reproduction code, aggregate results and the detailed protocol are available in the accompanying repository.
 
-The author has reported that the work is not under consideration by another journal and has declared no conflicts of interest. The manuscript discloses the use of OpenAI Codex in research software and manuscript revision. Funding information and the final author attestations will be supplied in the submission system after author review.
+The author has reported that the work is not under consideration by another journal and has declared no conflicts of interest. The manuscript discloses the use of OpenAI Codex in research software and manuscript revision. The work received no specific grant funding. Final author attestations will be completed in the submission system after author review.
 
 Thank you for considering the manuscript.
 

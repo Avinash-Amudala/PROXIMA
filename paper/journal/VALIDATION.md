@@ -7,4 +7,4 @@
 - Generated tables and figure read the stored results. No numeric performance values were invented or manually inserted into outputs.
 - Source and result manifests bind the current calculations to their artifacts. Raw Criteo data were not committed.
 
-These checks verify execution, reproducibility and presentation, not editorial acceptance or external validity. Author scientific review and a specific funding declaration remain to be completed before journal submission.
+These checks verify execution, reproducibility and presentation, not editorial acceptance or external validity. Author scientific review remains to be completed before journal submission.
