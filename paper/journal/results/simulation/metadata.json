@@ -1,0 +1,74 @@
+{
+  "seed": 20260928,
+  "repetitions": 100,
+  "n_train": 60,
+  "n_test": 60,
+  "segments": 5,
+  "scenario_parameters": {
+    "balanced": [
+      0.04,
+      0.08,
+      false
+    ],
+    "heterogeneous": [
+      0.04,
+      0.2,
+      false
+    ],
+    "noisy": [
+      0.12,
+      0.08,
+      false
+    ],
+    "shifted": [
+      0.04,
+      0.08,
+      true
+    ]
+  },
+  "weights": {
+    "PROXIMA": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "Correlation": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "Decision only": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "Local only": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "Equal weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "No local component": [
+      0.75,
+      0.25,
+      0.0
+    ]
+  },
+  "candidate_order": [
+    "faithful",
+    "offset",
+    "local_reversal",
+    "unrelated"
+  ],
+  "python": "3.13.7",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "evidence_type": "fully synthetic Gaussian effect-estimate simulation",
+  "tie_break": "first candidate in declared order",
+  "uncertainty": "95% t intervals over independent Monte Carlo replicate means; exploratory, no familywise correction",
+  "source_sha256": "64a8187777810b09be11686bb59caee81be1394b24a18286c0baa61f8041db75"
+}

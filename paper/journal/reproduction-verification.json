@@ -1,0 +1,14 @@
+{
+  "protocol": "Independent complete rerun at fixed seeds; byte-for-byte CSV comparison",
+  "matching_files": {
+    "simulation/summary.csv": true,
+    "simulation/selections.csv": true,
+    "simulation/paired_comparisons.csv": true,
+    "simulation/replicates.csv": true,
+    "simulation/training_scores.csv": true,
+    "criteo/effects.csv": true,
+    "criteo/arm_aggregates.csv": true,
+    "criteo/segment_outcome_effects.csv": true,
+    "criteo/segment_proxy_effects.csv": true
+  }
+}

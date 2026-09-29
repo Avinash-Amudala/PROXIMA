@@ -41,20 +41,23 @@ def compute_correlation_significance(
         SignificanceTest with correlation test results
     """
     # Remove NaN values
-    mask = ~(np.isnan(x) | np.isnan(y))
+    x, y = np.asarray(x, float), np.asarray(y, float)
+    if x.shape != y.shape or x.ndim != 1 or not 0 < alpha < 1:
+        raise ValueError("Provide paired one-dimensional inputs and 0 < alpha < 1")
+    mask = np.isfinite(x) & np.isfinite(y)
     x_clean = x[mask]
     y_clean = y[mask]
     
     n = len(x_clean)
     
-    if n < 3:
+    if n <= 3 or np.std(x_clean) == 0 or np.std(y_clean) == 0:
         return SignificanceTest(
             metric="correlation",
-            test_statistic=0.0,
-            p_value=1.0,
+            test_statistic=float("nan"),
+            p_value=float("nan"),
             is_significant=False,
-            confidence_interval_95=(0.0, 0.0),
-            effect_size=0.0,
+            confidence_interval_95=(float("nan"), float("nan")),
+            effect_size=float("nan"),
             sample_size=n
         )
     
@@ -62,7 +65,7 @@ def compute_correlation_significance(
     r, p_value = stats.pearsonr(x_clean, y_clean)
     
     # Fisher's z-transformation for confidence interval
-    z = np.arctanh(r)
+    z = np.arctanh(np.clip(r, -1+1e-15, 1-1e-15))
     se = 1 / np.sqrt(n - 3)
     z_crit = stats.norm.ppf(1 - alpha/2)
     
@@ -113,13 +116,16 @@ def compute_treatment_effect_significance(
         t_stat, p_value = stats.ttest_ind(treatment, control, equal_var=False)
         
         # Effect size (Cohen's d)
-        pooled_std = np.sqrt((control.var() + treatment.var()) / 2)
+        pooled_std = np.sqrt(((len(control)-1)*control.var() + (len(treatment)-1)*treatment.var()) / (len(control)+len(treatment)-2))
         cohens_d = (treatment.mean() - control.mean()) / pooled_std if pooled_std > 0 else 0
         
         # Confidence interval for difference in means
         diff = treatment.mean() - control.mean()
         se_diff = np.sqrt(control.var()/len(control) + treatment.var()/len(treatment))
-        t_crit = stats.t.ppf(1 - alpha/2, len(control) + len(treatment) - 2)
+        v0, v1 = control.var()/len(control), treatment.var()/len(treatment)
+        denominator = v0*v0/(len(control)-1) + v1*v1/(len(treatment)-1)
+        dof = (v0+v1)**2/denominator if denominator > 0 else np.inf
+        t_crit = stats.t.ppf(1 - alpha/2, dof)
         
         ci_lower = diff - t_crit * se_diff
         ci_upper = diff + t_crit * se_diff
@@ -142,61 +148,27 @@ def compute_treatment_effect_significance(
 
 
 def compute_proxy_reliability_confidence(
-    df: pd.DataFrame,
-    proxy_metric: str,
-    long_metric: str = "long_retained",
-    n_bootstrap: int = 1000,
-    alpha: float = 0.05
+    df: pd.DataFrame, proxy_metric: str, long_metric: str = "long_retained",
+    n_bootstrap: int = 1000, alpha: float = 0.05, seed: int = 42,
 ) -> Tuple[float, Tuple[float, float]]:
-    """
-    Compute confidence interval for proxy reliability score using bootstrap.
-    
-    Args:
-        df: DataFrame with experiment data
-        proxy_metric: Name of proxy metric
-        long_metric: Name of long-term metric
-        n_bootstrap: Number of bootstrap samples
-        alpha: Significance level
-    
-    Returns:
-        Tuple of (reliability_score, (ci_lower, ci_upper))
-    """
+    """Seeded experiment-block bootstrap with unique identifiers for each draw."""
     from proxima.models.baseline import score_proxies
-    
-    # Original reliability score
-    details, _ = score_proxies(df)
-    original_score = details[details['metric'] == proxy_metric]['reliability'].values[0]
-    
-    # Bootstrap
-    bootstrap_scores = []
-    n_experiments = df['exp_id'].nunique()
-    
+    if not 0 < alpha < 1 or n_bootstrap < 2 or df.exp_id.nunique() < 2:
+        raise ValueError("Need two experiments, two resamples, and 0 < alpha < 1")
+    def score(frame):
+        details, _ = score_proxies(frame, proxy_metrics=[proxy_metric], long_metric=long_metric)
+        return float(details.iloc[0].reliability)
+    original = score(df)
+    groups = [g for _, g in df.groupby("exp_id", sort=True)]
+    rng = np.random.default_rng(seed)
+    values = []
     for _ in range(n_bootstrap):
-        # Resample experiments with replacement
-        sampled_exp_ids = np.random.choice(
-            df['exp_id'].unique(),
-            size=n_experiments,
-            replace=True
-        )
-        
-        # Create bootstrap sample
-        bootstrap_df = pd.concat([
-            df[df['exp_id'] == exp_id] for exp_id in sampled_exp_ids
-        ], ignore_index=True)
-        
-        # Compute reliability
-        try:
-            boot_details, _ = score_proxies(bootstrap_df)
-            boot_score = boot_details[boot_details['metric'] == proxy_metric]['reliability'].values[0]
-            bootstrap_scores.append(boot_score)
-        except:
-            continue
-    
-    # Compute confidence interval
-    ci_lower = np.percentile(bootstrap_scores, alpha/2 * 100)
-    ci_upper = np.percentile(bootstrap_scores, (1 - alpha/2) * 100)
-    
-    return original_score, (ci_lower, ci_upper)
+        ids = rng.integers(0, len(groups), size=len(groups))
+        sample = pd.concat([groups[i].assign(exp_id=j) for j, i in enumerate(ids)], ignore_index=True)
+        values.append(score(sample))
+    if not np.isfinite(values).all():
+        raise ValueError("Undefined bootstrap scores: check segment sizes and missing data")
+    return original, tuple(map(float, np.quantile(values, [alpha/2, 1-alpha/2])))
 
 
 def test_proxy_superiority(
@@ -232,9 +204,14 @@ def test_proxy_superiority(
     aligned = pd.concat([long_eff, proxy1_eff, proxy2_eff], axis=1, join="inner")
     aligned.columns = ['long', 'proxy1', 'proxy2']
     
-    # Directional accuracy
-    proxy1_correct = (np.sign(aligned['long']) == np.sign(aligned['proxy1']))
-    proxy2_correct = (np.sign(aligned['long']) == np.sign(aligned['proxy2']))
+    aligned = aligned.replace([np.inf, -np.inf], np.nan).dropna()
+    if aligned.empty:
+        raise ValueError("No finite paired effects for comparison")
+    d1 = -1 if proxy1 == "rebuffer_rate" else 1
+    d2 = -1 if proxy2 == "rebuffer_rate" else 1
+    # The same positive-effect ship rule as the decision simulation.
+    proxy1_correct = ((aligned['long'] > 0) == (d1 * aligned['proxy1'] > 0))
+    proxy2_correct = ((aligned['long'] > 0) == (d2 * aligned['proxy2'] > 0))
     
     # McNemar's test
     # Contingency table: [both_correct, proxy1_only, proxy2_only, both_wrong]
@@ -245,7 +222,7 @@ def test_proxy_superiority(
     
     # McNemar statistic
     if proxy1_only + proxy2_only > 0:
-        mcnemar_stat = (abs(proxy1_only - proxy2_only) - 1)**2 / (proxy1_only + proxy2_only)
+        mcnemar_stat = max(abs(proxy1_only - proxy2_only) - 1, 0)**2 / (proxy1_only + proxy2_only)
         p_value = 1 - stats.chi2.cdf(mcnemar_stat, df=1)
     else:
         mcnemar_stat = 0
@@ -259,6 +236,6 @@ def test_proxy_superiority(
         'mcnemar_statistic': mcnemar_stat,
         'p_value': p_value,
         'is_significant': p_value < alpha,
-        'winner': proxy1 if proxy1_correct.mean() > proxy2_correct.mean() else proxy2
+        'winner': None if proxy1_correct.mean() == proxy2_correct.mean() else (proxy1 if proxy1_correct.mean() > proxy2_correct.mean() else proxy2)
     }
 

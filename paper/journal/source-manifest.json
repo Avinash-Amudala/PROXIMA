@@ -1,0 +1,13 @@
+{
+  "scripts/journal_benchmark.py": "64a8187777810b09be11686bb59caee81be1394b24a18286c0baa61f8041db75",
+  "scripts/journal_criteo.py": "c9014a3c26871f123a7a3823855bb823c8281936545e20b3c21e2f5eb86211a1",
+  "scripts/reproduce_all.py": "ab9e21c1f97b6d61d0a2aabfcc531a0b4c7ca3dc6ac1f9b59bff6379e36ccf54",
+  "scripts/build_journal_assets.py": "7b82cf2de314a7a84b37565fcef0f7147bbec66191b5076a49c9979f38256dcc",
+  "src/proxima/evaluation/metrics.py": "d18c31e08813de668a1abb1aca543221f4e1cc310e02d491b9cb529cb910f945",
+  "src/proxima/evaluation/statistical_tests.py": "e9da7a277fec4ca7363b454a9d619e04640befe3416b7b5936986c04d73ab14b",
+  "src/proxima/evaluation/decision_sim.py": "aea5863be1fbc0bde5abdc209ebbacdfa35b878c7dff00a43f342d22d7b73dce",
+  "src/proxima/evaluation/audit.py": "53b9840de59976ba0b4b0573803f2e3fe7fa8cfb9574d8fbbe2af8b48ebbbdee",
+  "src/proxima/evaluation/__init__.py": "ef644461fd84cfde5744a391d8492963848fb3c0d6511f68fdfc06221be39348",
+  "src/proxima/models/baseline.py": "27497e06d785f942d0e11df143bfeb6a321184b5a0fddc6f903b7081e5000515",
+  "requirements-journal.txt": "25cd67138c44ea97b5428a9fdcaf6d13331301631f24768742969a318c773ce3"
+}

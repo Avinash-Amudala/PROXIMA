@@ -1,0 +1,13 @@
+{
+  "results/criteo/arm_aggregates.csv": "4e9c4b3667a016fd4b5ab938b44ebd26092f1a950a1606d9c72a6137f5f678c1",
+  "results/criteo/effects.csv": "d0d7d66ebf100fed00254ea44afdd45e688280afc4a81508c2b3fc1a19bfdf5a",
+  "results/criteo/segment_outcome_effects.csv": "297bc7de49d1cd8c2e078b408061cb367bd7211b9768dd020c1e1353608add98",
+  "results/criteo/segment_proxy_effects.csv": "12bafce849b9b4b9a21bcb87071a48cc54e1cf085cb0b8651e3d4991039d6e98",
+  "results/criteo/summary.json": "321da95313bb6e5a5e3c79e794d0d5c1734a9844ffa7b297e11e618c597b4050",
+  "results/simulation/metadata.json": "9652d90100bcecff80c2cf9c74bdca0fd3e66f19797c61a31250ab77737aa11d",
+  "results/simulation/paired_comparisons.csv": "165a0a554d4c8869704b226040f1a60bf75e93130a1389509471862a96c19d5a",
+  "results/simulation/replicates.csv": "b928b600ecf1a1ce518f9d35c890abb860ee83923c68cce26dd9b3d754b9bd28",
+  "results/simulation/selections.csv": "6d0904e391b74916047ff1dbb8f1b37d5e481b1a12c59dfea1dd1b96294ec8d9",
+  "results/simulation/summary.csv": "6479ec07885d64a7e05baa1642de31aaa7a8306a31fece9cc311352d40a11daa",
+  "results/simulation/training_scores.csv": "42f645650d1ba89ded6a86c64e8b8dfb2aa16e6dbe2255fcf05ccd2fee66eb8e"
+}

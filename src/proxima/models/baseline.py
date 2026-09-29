@@ -45,7 +45,9 @@ def compute_diff_in_means_effect(df: pd.DataFrame, y_col: str) -> pd.DataFrame:
     Returns:
         DataFrame with columns [exp_id, delta_{y_col}]
     """
-    g = df.groupby(["exp_id", "treatment"])[y_col].mean().unstack()
+    if not df["treatment"].isin([0, 1]).all():
+        raise ValueError("treatment must contain only 0 and 1")
+    g = df.groupby(["exp_id", "treatment"], observed=True)[y_col].mean().unstack().reindex(columns=[0, 1])
     g = g.rename(columns={0: "control_mean", 1: "treat_mean"})
     g["effect"] = g["treat_mean"] - g["control_mean"]
     g = g.reset_index()
@@ -68,7 +70,7 @@ def compute_segment_effects(
     Returns:
         DataFrame with segment-level treatment effects
     """
-    g = df.groupby(["exp_id", *segment_cols, "treatment"])[y_col].mean().unstack()
+    g = df.groupby(["exp_id", *segment_cols, "treatment"], observed=True)[y_col].mean().unstack().reindex(columns=[0, 1])
     g = g.rename(columns={0: "control_mean", 1: "treat_mean"})
     g["effect"] = g["treat_mean"] - g["control_mean"]
     g = g.reset_index()
@@ -113,121 +115,79 @@ def train_long_term_model(df: pd.DataFrame) -> Tuple[Pipeline, float]:
 
 
 def score_proxies(
-    df: pd.DataFrame, 
-    segment_cols: List[str] = ["region", "device", "tenure"]
+    df: pd.DataFrame,
+    segment_cols: List[str] = None,
+    proxy_metrics: List[str] = None,
+    long_metric: str = "long_retained",
+    directions: dict = None,
+    weights: Tuple[float, float, float] = (0.6, 0.2, 0.2),
+    min_per_arm: int = 2,
 ) -> Tuple[pd.DataFrame, List[ProxyScore]]:
-    """
-    Scores each early metric as a proxy for long_retained uplift.
+    """Descriptive score; not a probability or a guarantee about future effects.
 
-    Reliability is a composite:
-      0.6 * effect_correlation + 0.2 * directional_accuracy + 0.2 * (1 - fragility_rate)
-    
-    Args:
-        df: DataFrame with experiment data
-        segment_cols: List of segment column names for fragility detection
-    
-    Returns:
-        Tuple of (details_dataframe, list_of_proxy_scores)
+    Fragility compares LOCAL proxy and LOCAL outcome decisions. Global discordance
+    is reported separately. Missing/undersized cells are excluded and counted.
+    Undefined correlation receives a neutral 0.5 component and an explicit flag.
     """
-    # Experiment-level long-term effect
-    long_eff = compute_diff_in_means_effect(df, "long_retained")
-
-    proxy_scores: List[ProxyScore] = []
+    from proxima.evaluation.audit import score_effects
+    segment_cols = ["region", "device", "tenure"] if segment_cols is None else segment_cols
+    proxy_metrics = EARLY_METRICS if proxy_metrics is None else proxy_metrics
+    directions = {"rebuffer_rate": -1} if directions is None else directions
+    if not segment_cols or min_per_arm < 1:
+        raise ValueError("Provide segment columns and a positive arm-size minimum")
     details_rows = []
-
-    # Precompute global long-term sign per experiment
-    long_by_exp = long_eff.set_index("exp_id")["delta_long_retained"]
-
-    for m in EARLY_METRICS:
-        m_eff = compute_diff_in_means_effect(df, m).set_index("exp_id")[f"delta_{m}"]
-
-        # Align
-        aligned = pd.concat([long_by_exp, m_eff], axis=1, join="inner").dropna()
-        aligned.columns = ["delta_long", "delta_proxy"]
-
-        # effect correlation
-        if aligned["delta_proxy"].std() < 1e-12 or aligned["delta_long"].std() < 1e-12:
-            corr = 0.0
-        else:
-            corr = float(aligned["delta_proxy"].corr(aligned["delta_long"]))
-
-        # directional accuracy (sign match)
-        dir_acc = float((np.sign(aligned["delta_proxy"]) == np.sign(aligned["delta_long"])).mean())
-
-        # fragility: segment-level sign flips
-        seg_long = compute_segment_effects(df, "long_retained", segment_cols)
-        seg_proxy = compute_segment_effects(df, m, segment_cols)
-
-        seg = seg_long.merge(seg_proxy, on=["exp_id", *segment_cols], how="inner", suffixes=("_long", "_proxy"))
-        # attach global signs
-        seg["global_long_sign"] = np.sign(seg["exp_id"].map(long_by_exp))
-        seg["proxy_sign"] = np.sign(seg[f"delta_{m}"])
-        # "flip" if proxy suggests opposite direction than global long-term
-        seg["flip"] = (seg["proxy_sign"] != seg["global_long_sign"]).astype(int)
-        fragility_rate = float(seg["flip"].mean())
-
-        # Reliability composite (normalize corr to [0,1] via (corr+1)/2)
-        corr01 = (corr + 1.0) / 2.0
-        reliability = float(0.6 * corr01 + 0.2 * dir_acc + 0.2 * (1.0 - fragility_rate))
-
-        proxy_scores.append(ProxyScore(
-            metric=m,
-            reliability=reliability,
-            effect_corr=corr,
-            directional_accuracy=dir_acc,
-            fragility_rate=fragility_rate
-        ))
-
-        details_rows.append({
-            "metric": m,
-            "reliability": reliability,
-            "effect_corr": corr,
-            "directional_accuracy": dir_acc,
-            "fragility_rate": fragility_rate,
-            "n_experiments_scored": int(aligned.shape[0]),
-        })
-
-    details = pd.DataFrame(details_rows).sort_values("reliability", ascending=False).reset_index(drop=True)
-    return details, proxy_scores
+    for metric in proxy_metrics:
+        # Pairwise complete cases preserve the same units for each proxy/outcome.
+        work = df.replace([np.inf, -np.inf], np.nan).dropna(subset=[metric, long_metric, *segment_cols])
+        global_long = compute_diff_in_means_effect(work, long_metric).set_index("exp_id").iloc[:, 0]
+        global_proxy = compute_diff_in_means_effect(work, metric).set_index("exp_id").iloc[:, 0]
+        counts = work.groupby(["exp_id", "treatment"], observed=True).size().unstack(fill_value=0).reindex(columns=[0, 1], fill_value=0)
+        aligned = pd.concat([global_long, global_proxy], axis=1).dropna()
+        aligned = aligned.loc[aligned.index.intersection(counts.index[(counts >= min_per_arm).all(axis=1)])]
+        aligned.columns = ["outcome", "proxy"]
+        local_long = compute_segment_effects(work, long_metric, segment_cols)
+        local_proxy = compute_segment_effects(work, metric, segment_cols)
+        seg = local_long.merge(local_proxy, on=["exp_id", *segment_cols], suffixes=("_outcome", "_proxy"))
+        # Same metric is permitted and should produce a perfect local match.
+        lcol = f"delta_{long_metric}" + ("_outcome" if metric == long_metric else "")
+        pcol = f"delta_{metric}" + ("_proxy" if metric == long_metric else "")
+        counts = work.groupby(["exp_id", *segment_cols, "treatment"], observed=True).size().unstack(fill_value=0).reindex(columns=[0, 1], fill_value=0)
+        eligible = counts[(counts >= min_per_arm).all(axis=1)].reset_index()[["exp_id", *segment_cols]]
+        n_candidate = len(seg)
+        seg = seg.merge(eligible, on=["exp_id", *segment_cols]).dropna(subset=[lcol, pcol])
+        seg = seg[seg.exp_id.isin(aligned.index)]
+        result = score_effects(aligned.proxy.to_numpy(), aligned.outcome.to_numpy(),
+                              seg[pcol].to_numpy(), seg[lcol].to_numpy(),
+                              direction=directions.get(metric, 1), weights=weights)
+        result.update(metric=metric, n_experiments_scored=len(aligned),
+                      n_segment_cells=len(seg), n_segment_cells_excluded=n_candidate-len(seg))
+        direction = directions.get(metric, 1)
+        result["global_discordance"] = float(((direction * seg[pcol] > 0) != (seg.exp_id.map(global_long) > 0)).mean()) if len(seg) else float("nan")
+        details_rows.append(result)
+    details = pd.DataFrame(details_rows).sort_values("reliability", ascending=False, na_position="last").reset_index(drop=True)
+    scores = [ProxyScore(row.metric, row.reliability, row.effect_corr, row.directional_accuracy, row.fragility_rate)
+              for row in details.itertuples()]
+    return details, scores
 
 
 def find_top_fragility_segments(
-    df: pd.DataFrame,
-    proxy_metric: str,
-    segment_cols: List[str] = ["region", "device", "tenure"],
-    min_count: int = 500
+    df: pd.DataFrame, proxy_metric: str,
+    segment_cols: List[str] = None, min_count: int = 500,
+    min_per_arm: int = 2, direction: int = None,
 ) -> pd.DataFrame:
-    """
-    Returns segments where proxy sign differs from long-term sign most often.
-
-    Args:
-        df: DataFrame with experiment data
-        proxy_metric: Name of the proxy metric to analyze
-        segment_cols: List of segment column names
-        min_count: Minimum number of users per segment to include
-
-    Returns:
-        DataFrame with fragile segments ranked by flip_rate
-    """
-    long_eff = compute_diff_in_means_effect(df, "long_retained").set_index("exp_id")["delta_long_retained"]
-    seg_long = compute_segment_effects(df, "long_retained", segment_cols)
-    seg_proxy = compute_segment_effects(df, proxy_metric, segment_cols)
-    seg = seg_long.merge(seg_proxy, on=["exp_id", *segment_cols], how="inner")
-
-    seg["global_long_sign"] = np.sign(seg["exp_id"].map(long_eff))
-    seg["proxy_sign"] = np.sign(seg[f"delta_{proxy_metric}"])
-    seg["flip"] = (seg["proxy_sign"] != seg["global_long_sign"]).astype(int)
-
-    # count users per (exp, segment) for filtering
-    counts = df.groupby(["exp_id", *segment_cols]).size().reset_index(name="n")
-    seg = seg.merge(counts, on=["exp_id", *segment_cols], how="inner")
-    seg = seg[seg["n"] >= min_count]
-
-    out = seg.groupby(segment_cols).agg(
-        flip_rate=("flip", "mean"),
-        n_cells=("flip", "size"),
-        avg_cell_n=("n", "mean"),
-    ).reset_index().sort_values("flip_rate", ascending=False)
-
-    return out
-
+    """Rank descriptive within-segment disagreement; no significance claim."""
+    segment_cols = ["region", "device", "tenure"] if segment_cols is None else segment_cols
+    direction = (-1 if proxy_metric == "rebuffer_rate" else 1) if direction is None else direction
+    if direction not in (-1, 1):
+        raise ValueError("direction must be -1/+1")
+    work = df.replace([np.inf, -np.inf], np.nan).dropna(subset=[proxy_metric, "long_retained", *segment_cols])
+    seg_long = compute_segment_effects(work, "long_retained", segment_cols)
+    seg_proxy = compute_segment_effects(work, proxy_metric, segment_cols)
+    seg = seg_long.merge(seg_proxy, on=["exp_id", *segment_cols]).dropna()
+    counts = work.groupby(["exp_id", *segment_cols, "treatment"], observed=True).size().unstack(fill_value=0).reindex(columns=[0, 1], fill_value=0)
+    counts = counts[(counts >= min_per_arm).all(axis=1)]
+    counts["n"] = counts.sum(axis=1)
+    seg = seg.merge(counts[["n"]].reset_index(), on=["exp_id", *segment_cols])
+    seg = seg[seg.n >= min_count]
+    seg["flip"] = ((direction * seg[f"delta_{proxy_metric}"] > 0) != (seg.delta_long_retained > 0)).astype(int)
+    return seg.groupby(segment_cols, observed=True).agg(flip_rate=("flip", "mean"), n_cells=("flip", "size"), avg_cell_n=("n", "mean")).reset_index().sort_values("flip_rate", ascending=False)
