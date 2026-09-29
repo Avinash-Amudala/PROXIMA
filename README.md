@@ -51,6 +51,6 @@ The API and dashboard are demonstrations. Their generated data do not establish 
 
 ## Author and licensing
 
-Avinash Amudala · Rochester Institute of Technology · aa9429@g.rit.edu · [ORCID 0009-0000-7226-6156](https://orcid.org/0009-0000-7226-6156)
+Avinash Amudala · Independent Researcher · aa9429@g.rit.edu · [ORCID 0009-0000-7226-6156](https://orcid.org/0009-0000-7226-6156)
 
 Project code is MIT-licensed; third-party datasets and the IEEE template retain their own terms. See [third-party notice](paper/journal/THIRD_PARTY_NOTICES.md). Earlier preprint: [arXiv:2604.14352](https://arxiv.org/abs/2604.14352).

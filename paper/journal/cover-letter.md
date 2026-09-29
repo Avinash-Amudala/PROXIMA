@@ -11,6 +11,6 @@ The author has reported that the work is not under consideration by another jour
 Thank you for considering the manuscript.
 
 Avinash Amudala
-Rochester Institute of Technology
+Independent Researcher
 aa9429@g.rit.edu
 ORCID: 0009-0000-7226-6156

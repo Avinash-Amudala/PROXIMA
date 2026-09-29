@@ -10,7 +10,7 @@ IEEE Access's stated APC is USD 2,160 plus applicable taxes as checked in Septem
 ## Prepared
 
 - Revised manuscript in the official template, editable sources, generated tables/figure and compiled PDF.
-- RIT affiliation as in the existing paper; contact aa9429@g.rit.edu; ORCID 0009-0000-7226-6156 supplied by the author.
+- Independent Researcher affiliation, confirmed by the author for this work; contact aa9429@g.rit.edu; ORCID 0009-0000-7226-6156 supplied by the author.
 - No conflicts of interest and no specific grant funding declared by the author in this session.
 - Prior arXiv version cited and disclosed; author reports no concurrent journal review.
 - Explicit AI-assistance disclosure describing affected sections and work.
@@ -20,7 +20,7 @@ IEEE Access's stated APC is USD 2,160 plus applicable taxes as checked in Septem
 ## Author review before pressing Submit
 
 1. Read and approve the revised claims, changed title, new experiments, tables and limitations. This is a substantive scientific revision, not only formatting.
-2. Confirm current RIT affiliation and short biography are accurate. Authenticate ORCID in the submission system if requested.
+2. Review the Independent Researcher affiliation and short biography. Authenticate ORCID in the submission system if requested.
 3. Enter the confirmed funding declaration: no specific grant from any funding agency.
 4. Confirm author responsibility under the journal's AI policy and retain the disclosure. Do not claim AI as an author.
 5. Check originality, permissions, and any overlap with the second planned paper; clearly distinguish their contributions.
