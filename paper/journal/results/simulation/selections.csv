@@ -1,0 +1,2401 @@
+scenario,replicate,method,selected
+balanced,0,PROXIMA,faithful
+balanced,0,Correlation,local_reversal
+balanced,0,Decision only,local_reversal
+balanced,0,Local only,faithful
+balanced,0,Equal weights,faithful
+balanced,0,No local component,local_reversal
+balanced,1,PROXIMA,faithful
+balanced,1,Correlation,local_reversal
+balanced,1,Decision only,faithful
+balanced,1,Local only,faithful
+balanced,1,Equal weights,faithful
+balanced,1,No local component,faithful
+balanced,2,PROXIMA,faithful
+balanced,2,Correlation,local_reversal
+balanced,2,Decision only,faithful
+balanced,2,Local only,faithful
+balanced,2,Equal weights,faithful
+balanced,2,No local component,faithful
+balanced,3,PROXIMA,faithful
+balanced,3,Correlation,offset
+balanced,3,Decision only,faithful
+balanced,3,Local only,faithful
+balanced,3,Equal weights,faithful
+balanced,3,No local component,local_reversal
+balanced,4,PROXIMA,faithful
+balanced,4,Correlation,local_reversal
+balanced,4,Decision only,faithful
+balanced,4,Local only,faithful
+balanced,4,Equal weights,faithful
+balanced,4,No local component,local_reversal
+balanced,5,PROXIMA,faithful
+balanced,5,Correlation,offset
+balanced,5,Decision only,faithful
+balanced,5,Local only,faithful
+balanced,5,Equal weights,faithful
+balanced,5,No local component,local_reversal
+balanced,6,PROXIMA,faithful
+balanced,6,Correlation,offset
+balanced,6,Decision only,local_reversal
+balanced,6,Local only,faithful
+balanced,6,Equal weights,faithful
+balanced,6,No local component,local_reversal
+balanced,7,PROXIMA,faithful
+balanced,7,Correlation,local_reversal
+balanced,7,Decision only,local_reversal
+balanced,7,Local only,faithful
+balanced,7,Equal weights,faithful
+balanced,7,No local component,local_reversal
+balanced,8,PROXIMA,faithful
+balanced,8,Correlation,offset
+balanced,8,Decision only,local_reversal
+balanced,8,Local only,faithful
+balanced,8,Equal weights,faithful
+balanced,8,No local component,local_reversal
+balanced,9,PROXIMA,faithful
+balanced,9,Correlation,offset
+balanced,9,Decision only,local_reversal
+balanced,9,Local only,faithful
+balanced,9,Equal weights,faithful
+balanced,9,No local component,local_reversal
+balanced,10,PROXIMA,local_reversal
+balanced,10,Correlation,offset
+balanced,10,Decision only,local_reversal
+balanced,10,Local only,faithful
+balanced,10,Equal weights,faithful
+balanced,10,No local component,local_reversal
+balanced,11,PROXIMA,faithful
+balanced,11,Correlation,offset
+balanced,11,Decision only,faithful
+balanced,11,Local only,faithful
+balanced,11,Equal weights,faithful
+balanced,11,No local component,local_reversal
+balanced,12,PROXIMA,faithful
+balanced,12,Correlation,offset
+balanced,12,Decision only,local_reversal
+balanced,12,Local only,faithful
+balanced,12,Equal weights,faithful
+balanced,12,No local component,local_reversal
+balanced,13,PROXIMA,faithful
+balanced,13,Correlation,local_reversal
+balanced,13,Decision only,local_reversal
+balanced,13,Local only,faithful
+balanced,13,Equal weights,faithful
+balanced,13,No local component,local_reversal
+balanced,14,PROXIMA,faithful
+balanced,14,Correlation,offset
+balanced,14,Decision only,local_reversal
+balanced,14,Local only,faithful
+balanced,14,Equal weights,faithful
+balanced,14,No local component,local_reversal
+balanced,15,PROXIMA,faithful
+balanced,15,Correlation,offset
+balanced,15,Decision only,faithful
+balanced,15,Local only,faithful
+balanced,15,Equal weights,faithful
+balanced,15,No local component,faithful
+balanced,16,PROXIMA,faithful
+balanced,16,Correlation,local_reversal
+balanced,16,Decision only,local_reversal
+balanced,16,Local only,faithful
+balanced,16,Equal weights,faithful
+balanced,16,No local component,local_reversal
+balanced,17,PROXIMA,faithful
+balanced,17,Correlation,local_reversal
+balanced,17,Decision only,local_reversal
+balanced,17,Local only,faithful
+balanced,17,Equal weights,faithful
+balanced,17,No local component,local_reversal
+balanced,18,PROXIMA,faithful
+balanced,18,Correlation,local_reversal
+balanced,18,Decision only,local_reversal
+balanced,18,Local only,faithful
+balanced,18,Equal weights,faithful
+balanced,18,No local component,local_reversal
+balanced,19,PROXIMA,local_reversal
+balanced,19,Correlation,local_reversal
+balanced,19,Decision only,local_reversal
+balanced,19,Local only,faithful
+balanced,19,Equal weights,faithful
+balanced,19,No local component,local_reversal
+balanced,20,PROXIMA,faithful
+balanced,20,Correlation,offset
+balanced,20,Decision only,local_reversal
+balanced,20,Local only,faithful
+balanced,20,Equal weights,faithful
+balanced,20,No local component,local_reversal
+balanced,21,PROXIMA,faithful
+balanced,21,Correlation,offset
+balanced,21,Decision only,local_reversal
+balanced,21,Local only,faithful
+balanced,21,Equal weights,faithful
+balanced,21,No local component,local_reversal
+balanced,22,PROXIMA,faithful
+balanced,22,Correlation,offset
+balanced,22,Decision only,faithful
+balanced,22,Local only,faithful
+balanced,22,Equal weights,faithful
+balanced,22,No local component,faithful
+balanced,23,PROXIMA,faithful
+balanced,23,Correlation,local_reversal
+balanced,23,Decision only,local_reversal
+balanced,23,Local only,faithful
+balanced,23,Equal weights,faithful
+balanced,23,No local component,local_reversal
+balanced,24,PROXIMA,faithful
+balanced,24,Correlation,offset
+balanced,24,Decision only,local_reversal
+balanced,24,Local only,faithful
+balanced,24,Equal weights,faithful
+balanced,24,No local component,local_reversal
+balanced,25,PROXIMA,faithful
+balanced,25,Correlation,local_reversal
+balanced,25,Decision only,local_reversal
+balanced,25,Local only,faithful
+balanced,25,Equal weights,faithful
+balanced,25,No local component,local_reversal
+balanced,26,PROXIMA,faithful
+balanced,26,Correlation,offset
+balanced,26,Decision only,local_reversal
+balanced,26,Local only,faithful
+balanced,26,Equal weights,faithful
+balanced,26,No local component,local_reversal
+balanced,27,PROXIMA,faithful
+balanced,27,Correlation,local_reversal
+balanced,27,Decision only,local_reversal
+balanced,27,Local only,faithful
+balanced,27,Equal weights,faithful
+balanced,27,No local component,local_reversal
+balanced,28,PROXIMA,faithful
+balanced,28,Correlation,offset
+balanced,28,Decision only,local_reversal
+balanced,28,Local only,faithful
+balanced,28,Equal weights,faithful
+balanced,28,No local component,local_reversal
+balanced,29,PROXIMA,faithful
+balanced,29,Correlation,local_reversal
+balanced,29,Decision only,local_reversal
+balanced,29,Local only,faithful
+balanced,29,Equal weights,faithful
+balanced,29,No local component,local_reversal
+balanced,30,PROXIMA,faithful
+balanced,30,Correlation,local_reversal
+balanced,30,Decision only,local_reversal
+balanced,30,Local only,faithful
+balanced,30,Equal weights,faithful
+balanced,30,No local component,local_reversal
+balanced,31,PROXIMA,faithful
+balanced,31,Correlation,offset
+balanced,31,Decision only,local_reversal
+balanced,31,Local only,faithful
+balanced,31,Equal weights,faithful
+balanced,31,No local component,local_reversal
+balanced,32,PROXIMA,faithful
+balanced,32,Correlation,offset
+balanced,32,Decision only,faithful
+balanced,32,Local only,faithful
+balanced,32,Equal weights,faithful
+balanced,32,No local component,local_reversal
+balanced,33,PROXIMA,faithful
+balanced,33,Correlation,offset
+balanced,33,Decision only,local_reversal
+balanced,33,Local only,faithful
+balanced,33,Equal weights,faithful
+balanced,33,No local component,local_reversal
+balanced,34,PROXIMA,faithful
+balanced,34,Correlation,offset
+balanced,34,Decision only,faithful
+balanced,34,Local only,faithful
+balanced,34,Equal weights,faithful
+balanced,34,No local component,local_reversal
+balanced,35,PROXIMA,faithful
+balanced,35,Correlation,offset
+balanced,35,Decision only,faithful
+balanced,35,Local only,faithful
+balanced,35,Equal weights,faithful
+balanced,35,No local component,local_reversal
+balanced,36,PROXIMA,faithful
+balanced,36,Correlation,local_reversal
+balanced,36,Decision only,faithful
+balanced,36,Local only,faithful
+balanced,36,Equal weights,faithful
+balanced,36,No local component,local_reversal
+balanced,37,PROXIMA,faithful
+balanced,37,Correlation,local_reversal
+balanced,37,Decision only,local_reversal
+balanced,37,Local only,faithful
+balanced,37,Equal weights,faithful
+balanced,37,No local component,local_reversal
+balanced,38,PROXIMA,faithful
+balanced,38,Correlation,local_reversal
+balanced,38,Decision only,local_reversal
+balanced,38,Local only,faithful
+balanced,38,Equal weights,faithful
+balanced,38,No local component,local_reversal
+balanced,39,PROXIMA,faithful
+balanced,39,Correlation,local_reversal
+balanced,39,Decision only,local_reversal
+balanced,39,Local only,faithful
+balanced,39,Equal weights,faithful
+balanced,39,No local component,local_reversal
+balanced,40,PROXIMA,faithful
+balanced,40,Correlation,local_reversal
+balanced,40,Decision only,faithful
+balanced,40,Local only,faithful
+balanced,40,Equal weights,faithful
+balanced,40,No local component,local_reversal
+balanced,41,PROXIMA,faithful
+balanced,41,Correlation,offset
+balanced,41,Decision only,faithful
+balanced,41,Local only,faithful
+balanced,41,Equal weights,faithful
+balanced,41,No local component,faithful
+balanced,42,PROXIMA,faithful
+balanced,42,Correlation,local_reversal
+balanced,42,Decision only,local_reversal
+balanced,42,Local only,faithful
+balanced,42,Equal weights,faithful
+balanced,42,No local component,local_reversal
+balanced,43,PROXIMA,faithful
+balanced,43,Correlation,local_reversal
+balanced,43,Decision only,local_reversal
+balanced,43,Local only,faithful
+balanced,43,Equal weights,faithful
+balanced,43,No local component,local_reversal
+balanced,44,PROXIMA,faithful
+balanced,44,Correlation,offset
+balanced,44,Decision only,local_reversal
+balanced,44,Local only,faithful
+balanced,44,Equal weights,faithful
+balanced,44,No local component,local_reversal
+balanced,45,PROXIMA,faithful
+balanced,45,Correlation,offset
+balanced,45,Decision only,faithful
+balanced,45,Local only,faithful
+balanced,45,Equal weights,faithful
+balanced,45,No local component,local_reversal
+balanced,46,PROXIMA,faithful
+balanced,46,Correlation,offset
+balanced,46,Decision only,local_reversal
+balanced,46,Local only,faithful
+balanced,46,Equal weights,faithful
+balanced,46,No local component,local_reversal
+balanced,47,PROXIMA,faithful
+balanced,47,Correlation,local_reversal
+balanced,47,Decision only,local_reversal
+balanced,47,Local only,faithful
+balanced,47,Equal weights,faithful
+balanced,47,No local component,local_reversal
+balanced,48,PROXIMA,faithful
+balanced,48,Correlation,offset
+balanced,48,Decision only,faithful
+balanced,48,Local only,faithful
+balanced,48,Equal weights,faithful
+balanced,48,No local component,faithful
+balanced,49,PROXIMA,faithful
+balanced,49,Correlation,local_reversal
+balanced,49,Decision only,local_reversal
+balanced,49,Local only,faithful
+balanced,49,Equal weights,faithful
+balanced,49,No local component,local_reversal
+balanced,50,PROXIMA,faithful
+balanced,50,Correlation,offset
+balanced,50,Decision only,local_reversal
+balanced,50,Local only,faithful
+balanced,50,Equal weights,faithful
+balanced,50,No local component,local_reversal
+balanced,51,PROXIMA,faithful
+balanced,51,Correlation,offset
+balanced,51,Decision only,faithful
+balanced,51,Local only,faithful
+balanced,51,Equal weights,faithful
+balanced,51,No local component,faithful
+balanced,52,PROXIMA,faithful
+balanced,52,Correlation,local_reversal
+balanced,52,Decision only,local_reversal
+balanced,52,Local only,faithful
+balanced,52,Equal weights,faithful
+balanced,52,No local component,local_reversal
+balanced,53,PROXIMA,faithful
+balanced,53,Correlation,offset
+balanced,53,Decision only,faithful
+balanced,53,Local only,faithful
+balanced,53,Equal weights,faithful
+balanced,53,No local component,faithful
+balanced,54,PROXIMA,faithful
+balanced,54,Correlation,local_reversal
+balanced,54,Decision only,local_reversal
+balanced,54,Local only,faithful
+balanced,54,Equal weights,faithful
+balanced,54,No local component,local_reversal
+balanced,55,PROXIMA,faithful
+balanced,55,Correlation,local_reversal
+balanced,55,Decision only,local_reversal
+balanced,55,Local only,faithful
+balanced,55,Equal weights,faithful
+balanced,55,No local component,local_reversal
+balanced,56,PROXIMA,faithful
+balanced,56,Correlation,local_reversal
+balanced,56,Decision only,local_reversal
+balanced,56,Local only,faithful
+balanced,56,Equal weights,faithful
+balanced,56,No local component,local_reversal
+balanced,57,PROXIMA,faithful
+balanced,57,Correlation,local_reversal
+balanced,57,Decision only,local_reversal
+balanced,57,Local only,faithful
+balanced,57,Equal weights,faithful
+balanced,57,No local component,local_reversal
+balanced,58,PROXIMA,faithful
+balanced,58,Correlation,offset
+balanced,58,Decision only,local_reversal
+balanced,58,Local only,faithful
+balanced,58,Equal weights,faithful
+balanced,58,No local component,local_reversal
+balanced,59,PROXIMA,faithful
+balanced,59,Correlation,local_reversal
+balanced,59,Decision only,local_reversal
+balanced,59,Local only,faithful
+balanced,59,Equal weights,faithful
+balanced,59,No local component,local_reversal
+balanced,60,PROXIMA,faithful
+balanced,60,Correlation,offset
+balanced,60,Decision only,faithful
+balanced,60,Local only,faithful
+balanced,60,Equal weights,faithful
+balanced,60,No local component,local_reversal
+balanced,61,PROXIMA,faithful
+balanced,61,Correlation,offset
+balanced,61,Decision only,local_reversal
+balanced,61,Local only,faithful
+balanced,61,Equal weights,faithful
+balanced,61,No local component,local_reversal
+balanced,62,PROXIMA,faithful
+balanced,62,Correlation,offset
+balanced,62,Decision only,faithful
+balanced,62,Local only,faithful
+balanced,62,Equal weights,faithful
+balanced,62,No local component,faithful
+balanced,63,PROXIMA,faithful
+balanced,63,Correlation,offset
+balanced,63,Decision only,local_reversal
+balanced,63,Local only,faithful
+balanced,63,Equal weights,faithful
+balanced,63,No local component,local_reversal
+balanced,64,PROXIMA,faithful
+balanced,64,Correlation,offset
+balanced,64,Decision only,faithful
+balanced,64,Local only,faithful
+balanced,64,Equal weights,faithful
+balanced,64,No local component,local_reversal
+balanced,65,PROXIMA,faithful
+balanced,65,Correlation,local_reversal
+balanced,65,Decision only,local_reversal
+balanced,65,Local only,faithful
+balanced,65,Equal weights,faithful
+balanced,65,No local component,local_reversal
+balanced,66,PROXIMA,faithful
+balanced,66,Correlation,offset
+balanced,66,Decision only,faithful
+balanced,66,Local only,faithful
+balanced,66,Equal weights,faithful
+balanced,66,No local component,local_reversal
+balanced,67,PROXIMA,faithful
+balanced,67,Correlation,local_reversal
+balanced,67,Decision only,faithful
+balanced,67,Local only,faithful
+balanced,67,Equal weights,faithful
+balanced,67,No local component,local_reversal
+balanced,68,PROXIMA,faithful
+balanced,68,Correlation,local_reversal
+balanced,68,Decision only,faithful
+balanced,68,Local only,faithful
+balanced,68,Equal weights,faithful
+balanced,68,No local component,faithful
+balanced,69,PROXIMA,faithful
+balanced,69,Correlation,offset
+balanced,69,Decision only,local_reversal
+balanced,69,Local only,faithful
+balanced,69,Equal weights,faithful
+balanced,69,No local component,local_reversal
+balanced,70,PROXIMA,faithful
+balanced,70,Correlation,offset
+balanced,70,Decision only,local_reversal
+balanced,70,Local only,faithful
+balanced,70,Equal weights,faithful
+balanced,70,No local component,local_reversal
+balanced,71,PROXIMA,faithful
+balanced,71,Correlation,local_reversal
+balanced,71,Decision only,local_reversal
+balanced,71,Local only,faithful
+balanced,71,Equal weights,faithful
+balanced,71,No local component,local_reversal
+balanced,72,PROXIMA,faithful
+balanced,72,Correlation,offset
+balanced,72,Decision only,local_reversal
+balanced,72,Local only,faithful
+balanced,72,Equal weights,faithful
+balanced,72,No local component,local_reversal
+balanced,73,PROXIMA,faithful
+balanced,73,Correlation,offset
+balanced,73,Decision only,local_reversal
+balanced,73,Local only,faithful
+balanced,73,Equal weights,faithful
+balanced,73,No local component,local_reversal
+balanced,74,PROXIMA,faithful
+balanced,74,Correlation,offset
+balanced,74,Decision only,local_reversal
+balanced,74,Local only,faithful
+balanced,74,Equal weights,faithful
+balanced,74,No local component,local_reversal
+balanced,75,PROXIMA,faithful
+balanced,75,Correlation,offset
+balanced,75,Decision only,faithful
+balanced,75,Local only,faithful
+balanced,75,Equal weights,faithful
+balanced,75,No local component,local_reversal
+balanced,76,PROXIMA,faithful
+balanced,76,Correlation,offset
+balanced,76,Decision only,local_reversal
+balanced,76,Local only,faithful
+balanced,76,Equal weights,faithful
+balanced,76,No local component,local_reversal
+balanced,77,PROXIMA,faithful
+balanced,77,Correlation,local_reversal
+balanced,77,Decision only,faithful
+balanced,77,Local only,faithful
+balanced,77,Equal weights,faithful
+balanced,77,No local component,local_reversal
+balanced,78,PROXIMA,faithful
+balanced,78,Correlation,local_reversal
+balanced,78,Decision only,local_reversal
+balanced,78,Local only,faithful
+balanced,78,Equal weights,faithful
+balanced,78,No local component,local_reversal
+balanced,79,PROXIMA,faithful
+balanced,79,Correlation,local_reversal
+balanced,79,Decision only,local_reversal
+balanced,79,Local only,faithful
+balanced,79,Equal weights,faithful
+balanced,79,No local component,local_reversal
+balanced,80,PROXIMA,faithful
+balanced,80,Correlation,local_reversal
+balanced,80,Decision only,local_reversal
+balanced,80,Local only,faithful
+balanced,80,Equal weights,faithful
+balanced,80,No local component,local_reversal
+balanced,81,PROXIMA,faithful
+balanced,81,Correlation,local_reversal
+balanced,81,Decision only,faithful
+balanced,81,Local only,faithful
+balanced,81,Equal weights,faithful
+balanced,81,No local component,local_reversal
+balanced,82,PROXIMA,faithful
+balanced,82,Correlation,local_reversal
+balanced,82,Decision only,local_reversal
+balanced,82,Local only,faithful
+balanced,82,Equal weights,faithful
+balanced,82,No local component,local_reversal
+balanced,83,PROXIMA,faithful
+balanced,83,Correlation,local_reversal
+balanced,83,Decision only,local_reversal
+balanced,83,Local only,faithful
+balanced,83,Equal weights,faithful
+balanced,83,No local component,local_reversal
+balanced,84,PROXIMA,faithful
+balanced,84,Correlation,local_reversal
+balanced,84,Decision only,local_reversal
+balanced,84,Local only,faithful
+balanced,84,Equal weights,faithful
+balanced,84,No local component,local_reversal
+balanced,85,PROXIMA,faithful
+balanced,85,Correlation,local_reversal
+balanced,85,Decision only,faithful
+balanced,85,Local only,faithful
+balanced,85,Equal weights,faithful
+balanced,85,No local component,local_reversal
+balanced,86,PROXIMA,faithful
+balanced,86,Correlation,offset
+balanced,86,Decision only,local_reversal
+balanced,86,Local only,faithful
+balanced,86,Equal weights,faithful
+balanced,86,No local component,local_reversal
+balanced,87,PROXIMA,faithful
+balanced,87,Correlation,offset
+balanced,87,Decision only,local_reversal
+balanced,87,Local only,faithful
+balanced,87,Equal weights,faithful
+balanced,87,No local component,local_reversal
+balanced,88,PROXIMA,faithful
+balanced,88,Correlation,offset
+balanced,88,Decision only,local_reversal
+balanced,88,Local only,faithful
+balanced,88,Equal weights,faithful
+balanced,88,No local component,local_reversal
+balanced,89,PROXIMA,faithful
+balanced,89,Correlation,local_reversal
+balanced,89,Decision only,local_reversal
+balanced,89,Local only,faithful
+balanced,89,Equal weights,faithful
+balanced,89,No local component,local_reversal
+balanced,90,PROXIMA,faithful
+balanced,90,Correlation,local_reversal
+balanced,90,Decision only,faithful
+balanced,90,Local only,faithful
+balanced,90,Equal weights,faithful
+balanced,90,No local component,local_reversal
+balanced,91,PROXIMA,faithful
+balanced,91,Correlation,local_reversal
+balanced,91,Decision only,local_reversal
+balanced,91,Local only,faithful
+balanced,91,Equal weights,faithful
+balanced,91,No local component,local_reversal
+balanced,92,PROXIMA,faithful
+balanced,92,Correlation,offset
+balanced,92,Decision only,local_reversal
+balanced,92,Local only,faithful
+balanced,92,Equal weights,faithful
+balanced,92,No local component,local_reversal
+balanced,93,PROXIMA,faithful
+balanced,93,Correlation,offset
+balanced,93,Decision only,local_reversal
+balanced,93,Local only,faithful
+balanced,93,Equal weights,faithful
+balanced,93,No local component,local_reversal
+balanced,94,PROXIMA,faithful
+balanced,94,Correlation,local_reversal
+balanced,94,Decision only,local_reversal
+balanced,94,Local only,faithful
+balanced,94,Equal weights,faithful
+balanced,94,No local component,local_reversal
+balanced,95,PROXIMA,faithful
+balanced,95,Correlation,local_reversal
+balanced,95,Decision only,local_reversal
+balanced,95,Local only,faithful
+balanced,95,Equal weights,faithful
+balanced,95,No local component,local_reversal
+balanced,96,PROXIMA,faithful
+balanced,96,Correlation,local_reversal
+balanced,96,Decision only,faithful
+balanced,96,Local only,faithful
+balanced,96,Equal weights,faithful
+balanced,96,No local component,local_reversal
+balanced,97,PROXIMA,faithful
+balanced,97,Correlation,offset
+balanced,97,Decision only,local_reversal
+balanced,97,Local only,faithful
+balanced,97,Equal weights,faithful
+balanced,97,No local component,local_reversal
+balanced,98,PROXIMA,faithful
+balanced,98,Correlation,offset
+balanced,98,Decision only,faithful
+balanced,98,Local only,faithful
+balanced,98,Equal weights,faithful
+balanced,98,No local component,local_reversal
+balanced,99,PROXIMA,faithful
+balanced,99,Correlation,offset
+balanced,99,Decision only,local_reversal
+balanced,99,Local only,faithful
+balanced,99,Equal weights,faithful
+balanced,99,No local component,local_reversal
+heterogeneous,0,PROXIMA,faithful
+heterogeneous,0,Correlation,offset
+heterogeneous,0,Decision only,local_reversal
+heterogeneous,0,Local only,faithful
+heterogeneous,0,Equal weights,faithful
+heterogeneous,0,No local component,local_reversal
+heterogeneous,1,PROXIMA,faithful
+heterogeneous,1,Correlation,offset
+heterogeneous,1,Decision only,local_reversal
+heterogeneous,1,Local only,faithful
+heterogeneous,1,Equal weights,faithful
+heterogeneous,1,No local component,local_reversal
+heterogeneous,2,PROXIMA,faithful
+heterogeneous,2,Correlation,offset
+heterogeneous,2,Decision only,local_reversal
+heterogeneous,2,Local only,faithful
+heterogeneous,2,Equal weights,faithful
+heterogeneous,2,No local component,local_reversal
+heterogeneous,3,PROXIMA,faithful
+heterogeneous,3,Correlation,local_reversal
+heterogeneous,3,Decision only,local_reversal
+heterogeneous,3,Local only,faithful
+heterogeneous,3,Equal weights,faithful
+heterogeneous,3,No local component,local_reversal
+heterogeneous,4,PROXIMA,faithful
+heterogeneous,4,Correlation,offset
+heterogeneous,4,Decision only,local_reversal
+heterogeneous,4,Local only,faithful
+heterogeneous,4,Equal weights,faithful
+heterogeneous,4,No local component,local_reversal
+heterogeneous,5,PROXIMA,faithful
+heterogeneous,5,Correlation,local_reversal
+heterogeneous,5,Decision only,local_reversal
+heterogeneous,5,Local only,faithful
+heterogeneous,5,Equal weights,faithful
+heterogeneous,5,No local component,local_reversal
+heterogeneous,6,PROXIMA,faithful
+heterogeneous,6,Correlation,offset
+heterogeneous,6,Decision only,local_reversal
+heterogeneous,6,Local only,faithful
+heterogeneous,6,Equal weights,faithful
+heterogeneous,6,No local component,local_reversal
+heterogeneous,7,PROXIMA,faithful
+heterogeneous,7,Correlation,offset
+heterogeneous,7,Decision only,local_reversal
+heterogeneous,7,Local only,faithful
+heterogeneous,7,Equal weights,faithful
+heterogeneous,7,No local component,local_reversal
+heterogeneous,8,PROXIMA,faithful
+heterogeneous,8,Correlation,offset
+heterogeneous,8,Decision only,local_reversal
+heterogeneous,8,Local only,faithful
+heterogeneous,8,Equal weights,faithful
+heterogeneous,8,No local component,local_reversal
+heterogeneous,9,PROXIMA,faithful
+heterogeneous,9,Correlation,local_reversal
+heterogeneous,9,Decision only,local_reversal
+heterogeneous,9,Local only,faithful
+heterogeneous,9,Equal weights,faithful
+heterogeneous,9,No local component,local_reversal
+heterogeneous,10,PROXIMA,faithful
+heterogeneous,10,Correlation,offset
+heterogeneous,10,Decision only,faithful
+heterogeneous,10,Local only,faithful
+heterogeneous,10,Equal weights,faithful
+heterogeneous,10,No local component,faithful
+heterogeneous,11,PROXIMA,faithful
+heterogeneous,11,Correlation,offset
+heterogeneous,11,Decision only,faithful
+heterogeneous,11,Local only,faithful
+heterogeneous,11,Equal weights,faithful
+heterogeneous,11,No local component,local_reversal
+heterogeneous,12,PROXIMA,faithful
+heterogeneous,12,Correlation,offset
+heterogeneous,12,Decision only,local_reversal
+heterogeneous,12,Local only,faithful
+heterogeneous,12,Equal weights,faithful
+heterogeneous,12,No local component,local_reversal
+heterogeneous,13,PROXIMA,faithful
+heterogeneous,13,Correlation,local_reversal
+heterogeneous,13,Decision only,local_reversal
+heterogeneous,13,Local only,faithful
+heterogeneous,13,Equal weights,faithful
+heterogeneous,13,No local component,local_reversal
+heterogeneous,14,PROXIMA,faithful
+heterogeneous,14,Correlation,local_reversal
+heterogeneous,14,Decision only,local_reversal
+heterogeneous,14,Local only,faithful
+heterogeneous,14,Equal weights,faithful
+heterogeneous,14,No local component,local_reversal
+heterogeneous,15,PROXIMA,faithful
+heterogeneous,15,Correlation,local_reversal
+heterogeneous,15,Decision only,local_reversal
+heterogeneous,15,Local only,faithful
+heterogeneous,15,Equal weights,faithful
+heterogeneous,15,No local component,local_reversal
+heterogeneous,16,PROXIMA,faithful
+heterogeneous,16,Correlation,offset
+heterogeneous,16,Decision only,local_reversal
+heterogeneous,16,Local only,faithful
+heterogeneous,16,Equal weights,faithful
+heterogeneous,16,No local component,local_reversal
+heterogeneous,17,PROXIMA,faithful
+heterogeneous,17,Correlation,offset
+heterogeneous,17,Decision only,local_reversal
+heterogeneous,17,Local only,faithful
+heterogeneous,17,Equal weights,faithful
+heterogeneous,17,No local component,local_reversal
+heterogeneous,18,PROXIMA,faithful
+heterogeneous,18,Correlation,local_reversal
+heterogeneous,18,Decision only,local_reversal
+heterogeneous,18,Local only,faithful
+heterogeneous,18,Equal weights,faithful
+heterogeneous,18,No local component,local_reversal
+heterogeneous,19,PROXIMA,faithful
+heterogeneous,19,Correlation,local_reversal
+heterogeneous,19,Decision only,faithful
+heterogeneous,19,Local only,faithful
+heterogeneous,19,Equal weights,faithful
+heterogeneous,19,No local component,local_reversal
+heterogeneous,20,PROXIMA,faithful
+heterogeneous,20,Correlation,local_reversal
+heterogeneous,20,Decision only,local_reversal
+heterogeneous,20,Local only,faithful
+heterogeneous,20,Equal weights,faithful
+heterogeneous,20,No local component,local_reversal
+heterogeneous,21,PROXIMA,faithful
+heterogeneous,21,Correlation,local_reversal
+heterogeneous,21,Decision only,local_reversal
+heterogeneous,21,Local only,faithful
+heterogeneous,21,Equal weights,faithful
+heterogeneous,21,No local component,local_reversal
+heterogeneous,22,PROXIMA,faithful
+heterogeneous,22,Correlation,local_reversal
+heterogeneous,22,Decision only,local_reversal
+heterogeneous,22,Local only,faithful
+heterogeneous,22,Equal weights,faithful
+heterogeneous,22,No local component,local_reversal
+heterogeneous,23,PROXIMA,faithful
+heterogeneous,23,Correlation,local_reversal
+heterogeneous,23,Decision only,faithful
+heterogeneous,23,Local only,faithful
+heterogeneous,23,Equal weights,faithful
+heterogeneous,23,No local component,local_reversal
+heterogeneous,24,PROXIMA,faithful
+heterogeneous,24,Correlation,offset
+heterogeneous,24,Decision only,faithful
+heterogeneous,24,Local only,faithful
+heterogeneous,24,Equal weights,faithful
+heterogeneous,24,No local component,local_reversal
+heterogeneous,25,PROXIMA,faithful
+heterogeneous,25,Correlation,offset
+heterogeneous,25,Decision only,local_reversal
+heterogeneous,25,Local only,faithful
+heterogeneous,25,Equal weights,faithful
+heterogeneous,25,No local component,local_reversal
+heterogeneous,26,PROXIMA,faithful
+heterogeneous,26,Correlation,local_reversal
+heterogeneous,26,Decision only,local_reversal
+heterogeneous,26,Local only,faithful
+heterogeneous,26,Equal weights,faithful
+heterogeneous,26,No local component,local_reversal
+heterogeneous,27,PROXIMA,faithful
+heterogeneous,27,Correlation,offset
+heterogeneous,27,Decision only,local_reversal
+heterogeneous,27,Local only,faithful
+heterogeneous,27,Equal weights,faithful
+heterogeneous,27,No local component,local_reversal
+heterogeneous,28,PROXIMA,faithful
+heterogeneous,28,Correlation,offset
+heterogeneous,28,Decision only,local_reversal
+heterogeneous,28,Local only,faithful
+heterogeneous,28,Equal weights,faithful
+heterogeneous,28,No local component,local_reversal
+heterogeneous,29,PROXIMA,faithful
+heterogeneous,29,Correlation,local_reversal
+heterogeneous,29,Decision only,local_reversal
+heterogeneous,29,Local only,faithful
+heterogeneous,29,Equal weights,faithful
+heterogeneous,29,No local component,local_reversal
+heterogeneous,30,PROXIMA,faithful
+heterogeneous,30,Correlation,offset
+heterogeneous,30,Decision only,local_reversal
+heterogeneous,30,Local only,faithful
+heterogeneous,30,Equal weights,faithful
+heterogeneous,30,No local component,local_reversal
+heterogeneous,31,PROXIMA,faithful
+heterogeneous,31,Correlation,offset
+heterogeneous,31,Decision only,local_reversal
+heterogeneous,31,Local only,faithful
+heterogeneous,31,Equal weights,faithful
+heterogeneous,31,No local component,local_reversal
+heterogeneous,32,PROXIMA,faithful
+heterogeneous,32,Correlation,local_reversal
+heterogeneous,32,Decision only,local_reversal
+heterogeneous,32,Local only,faithful
+heterogeneous,32,Equal weights,faithful
+heterogeneous,32,No local component,local_reversal
+heterogeneous,33,PROXIMA,faithful
+heterogeneous,33,Correlation,local_reversal
+heterogeneous,33,Decision only,local_reversal
+heterogeneous,33,Local only,faithful
+heterogeneous,33,Equal weights,faithful
+heterogeneous,33,No local component,local_reversal
+heterogeneous,34,PROXIMA,faithful
+heterogeneous,34,Correlation,offset
+heterogeneous,34,Decision only,local_reversal
+heterogeneous,34,Local only,faithful
+heterogeneous,34,Equal weights,faithful
+heterogeneous,34,No local component,local_reversal
+heterogeneous,35,PROXIMA,faithful
+heterogeneous,35,Correlation,local_reversal
+heterogeneous,35,Decision only,faithful
+heterogeneous,35,Local only,faithful
+heterogeneous,35,Equal weights,faithful
+heterogeneous,35,No local component,local_reversal
+heterogeneous,36,PROXIMA,faithful
+heterogeneous,36,Correlation,local_reversal
+heterogeneous,36,Decision only,local_reversal
+heterogeneous,36,Local only,faithful
+heterogeneous,36,Equal weights,faithful
+heterogeneous,36,No local component,local_reversal
+heterogeneous,37,PROXIMA,faithful
+heterogeneous,37,Correlation,local_reversal
+heterogeneous,37,Decision only,local_reversal
+heterogeneous,37,Local only,faithful
+heterogeneous,37,Equal weights,faithful
+heterogeneous,37,No local component,local_reversal
+heterogeneous,38,PROXIMA,faithful
+heterogeneous,38,Correlation,offset
+heterogeneous,38,Decision only,local_reversal
+heterogeneous,38,Local only,faithful
+heterogeneous,38,Equal weights,faithful
+heterogeneous,38,No local component,local_reversal
+heterogeneous,39,PROXIMA,faithful
+heterogeneous,39,Correlation,local_reversal
+heterogeneous,39,Decision only,local_reversal
+heterogeneous,39,Local only,faithful
+heterogeneous,39,Equal weights,faithful
+heterogeneous,39,No local component,local_reversal
+heterogeneous,40,PROXIMA,faithful
+heterogeneous,40,Correlation,offset
+heterogeneous,40,Decision only,local_reversal
+heterogeneous,40,Local only,faithful
+heterogeneous,40,Equal weights,faithful
+heterogeneous,40,No local component,local_reversal
+heterogeneous,41,PROXIMA,faithful
+heterogeneous,41,Correlation,local_reversal
+heterogeneous,41,Decision only,faithful
+heterogeneous,41,Local only,faithful
+heterogeneous,41,Equal weights,faithful
+heterogeneous,41,No local component,faithful
+heterogeneous,42,PROXIMA,faithful
+heterogeneous,42,Correlation,offset
+heterogeneous,42,Decision only,local_reversal
+heterogeneous,42,Local only,faithful
+heterogeneous,42,Equal weights,faithful
+heterogeneous,42,No local component,local_reversal
+heterogeneous,43,PROXIMA,faithful
+heterogeneous,43,Correlation,offset
+heterogeneous,43,Decision only,faithful
+heterogeneous,43,Local only,faithful
+heterogeneous,43,Equal weights,faithful
+heterogeneous,43,No local component,local_reversal
+heterogeneous,44,PROXIMA,faithful
+heterogeneous,44,Correlation,offset
+heterogeneous,44,Decision only,faithful
+heterogeneous,44,Local only,faithful
+heterogeneous,44,Equal weights,faithful
+heterogeneous,44,No local component,local_reversal
+heterogeneous,45,PROXIMA,faithful
+heterogeneous,45,Correlation,local_reversal
+heterogeneous,45,Decision only,local_reversal
+heterogeneous,45,Local only,faithful
+heterogeneous,45,Equal weights,faithful
+heterogeneous,45,No local component,local_reversal
+heterogeneous,46,PROXIMA,faithful
+heterogeneous,46,Correlation,local_reversal
+heterogeneous,46,Decision only,local_reversal
+heterogeneous,46,Local only,faithful
+heterogeneous,46,Equal weights,faithful
+heterogeneous,46,No local component,local_reversal
+heterogeneous,47,PROXIMA,faithful
+heterogeneous,47,Correlation,offset
+heterogeneous,47,Decision only,faithful
+heterogeneous,47,Local only,faithful
+heterogeneous,47,Equal weights,faithful
+heterogeneous,47,No local component,local_reversal
+heterogeneous,48,PROXIMA,faithful
+heterogeneous,48,Correlation,local_reversal
+heterogeneous,48,Decision only,local_reversal
+heterogeneous,48,Local only,faithful
+heterogeneous,48,Equal weights,faithful
+heterogeneous,48,No local component,local_reversal
+heterogeneous,49,PROXIMA,faithful
+heterogeneous,49,Correlation,offset
+heterogeneous,49,Decision only,local_reversal
+heterogeneous,49,Local only,faithful
+heterogeneous,49,Equal weights,faithful
+heterogeneous,49,No local component,local_reversal
+heterogeneous,50,PROXIMA,faithful
+heterogeneous,50,Correlation,local_reversal
+heterogeneous,50,Decision only,local_reversal
+heterogeneous,50,Local only,faithful
+heterogeneous,50,Equal weights,faithful
+heterogeneous,50,No local component,local_reversal
+heterogeneous,51,PROXIMA,faithful
+heterogeneous,51,Correlation,offset
+heterogeneous,51,Decision only,faithful
+heterogeneous,51,Local only,faithful
+heterogeneous,51,Equal weights,faithful
+heterogeneous,51,No local component,local_reversal
+heterogeneous,52,PROXIMA,faithful
+heterogeneous,52,Correlation,offset
+heterogeneous,52,Decision only,local_reversal
+heterogeneous,52,Local only,faithful
+heterogeneous,52,Equal weights,faithful
+heterogeneous,52,No local component,local_reversal
+heterogeneous,53,PROXIMA,faithful
+heterogeneous,53,Correlation,offset
+heterogeneous,53,Decision only,local_reversal
+heterogeneous,53,Local only,faithful
+heterogeneous,53,Equal weights,faithful
+heterogeneous,53,No local component,local_reversal
+heterogeneous,54,PROXIMA,faithful
+heterogeneous,54,Correlation,offset
+heterogeneous,54,Decision only,faithful
+heterogeneous,54,Local only,faithful
+heterogeneous,54,Equal weights,faithful
+heterogeneous,54,No local component,local_reversal
+heterogeneous,55,PROXIMA,faithful
+heterogeneous,55,Correlation,local_reversal
+heterogeneous,55,Decision only,local_reversal
+heterogeneous,55,Local only,faithful
+heterogeneous,55,Equal weights,faithful
+heterogeneous,55,No local component,local_reversal
+heterogeneous,56,PROXIMA,faithful
+heterogeneous,56,Correlation,offset
+heterogeneous,56,Decision only,faithful
+heterogeneous,56,Local only,faithful
+heterogeneous,56,Equal weights,faithful
+heterogeneous,56,No local component,faithful
+heterogeneous,57,PROXIMA,faithful
+heterogeneous,57,Correlation,local_reversal
+heterogeneous,57,Decision only,faithful
+heterogeneous,57,Local only,faithful
+heterogeneous,57,Equal weights,faithful
+heterogeneous,57,No local component,local_reversal
+heterogeneous,58,PROXIMA,faithful
+heterogeneous,58,Correlation,offset
+heterogeneous,58,Decision only,local_reversal
+heterogeneous,58,Local only,faithful
+heterogeneous,58,Equal weights,faithful
+heterogeneous,58,No local component,local_reversal
+heterogeneous,59,PROXIMA,faithful
+heterogeneous,59,Correlation,local_reversal
+heterogeneous,59,Decision only,local_reversal
+heterogeneous,59,Local only,faithful
+heterogeneous,59,Equal weights,faithful
+heterogeneous,59,No local component,local_reversal
+heterogeneous,60,PROXIMA,faithful
+heterogeneous,60,Correlation,offset
+heterogeneous,60,Decision only,local_reversal
+heterogeneous,60,Local only,faithful
+heterogeneous,60,Equal weights,faithful
+heterogeneous,60,No local component,local_reversal
+heterogeneous,61,PROXIMA,faithful
+heterogeneous,61,Correlation,offset
+heterogeneous,61,Decision only,local_reversal
+heterogeneous,61,Local only,faithful
+heterogeneous,61,Equal weights,faithful
+heterogeneous,61,No local component,local_reversal
+heterogeneous,62,PROXIMA,faithful
+heterogeneous,62,Correlation,local_reversal
+heterogeneous,62,Decision only,faithful
+heterogeneous,62,Local only,faithful
+heterogeneous,62,Equal weights,faithful
+heterogeneous,62,No local component,local_reversal
+heterogeneous,63,PROXIMA,faithful
+heterogeneous,63,Correlation,local_reversal
+heterogeneous,63,Decision only,local_reversal
+heterogeneous,63,Local only,faithful
+heterogeneous,63,Equal weights,faithful
+heterogeneous,63,No local component,local_reversal
+heterogeneous,64,PROXIMA,faithful
+heterogeneous,64,Correlation,local_reversal
+heterogeneous,64,Decision only,local_reversal
+heterogeneous,64,Local only,faithful
+heterogeneous,64,Equal weights,faithful
+heterogeneous,64,No local component,local_reversal
+heterogeneous,65,PROXIMA,faithful
+heterogeneous,65,Correlation,local_reversal
+heterogeneous,65,Decision only,local_reversal
+heterogeneous,65,Local only,faithful
+heterogeneous,65,Equal weights,faithful
+heterogeneous,65,No local component,local_reversal
+heterogeneous,66,PROXIMA,faithful
+heterogeneous,66,Correlation,offset
+heterogeneous,66,Decision only,local_reversal
+heterogeneous,66,Local only,faithful
+heterogeneous,66,Equal weights,faithful
+heterogeneous,66,No local component,local_reversal
+heterogeneous,67,PROXIMA,faithful
+heterogeneous,67,Correlation,offset
+heterogeneous,67,Decision only,local_reversal
+heterogeneous,67,Local only,faithful
+heterogeneous,67,Equal weights,faithful
+heterogeneous,67,No local component,local_reversal
+heterogeneous,68,PROXIMA,faithful
+heterogeneous,68,Correlation,local_reversal
+heterogeneous,68,Decision only,local_reversal
+heterogeneous,68,Local only,faithful
+heterogeneous,68,Equal weights,faithful
+heterogeneous,68,No local component,local_reversal
+heterogeneous,69,PROXIMA,faithful
+heterogeneous,69,Correlation,offset
+heterogeneous,69,Decision only,faithful
+heterogeneous,69,Local only,faithful
+heterogeneous,69,Equal weights,faithful
+heterogeneous,69,No local component,local_reversal
+heterogeneous,70,PROXIMA,faithful
+heterogeneous,70,Correlation,offset
+heterogeneous,70,Decision only,local_reversal
+heterogeneous,70,Local only,faithful
+heterogeneous,70,Equal weights,faithful
+heterogeneous,70,No local component,local_reversal
+heterogeneous,71,PROXIMA,faithful
+heterogeneous,71,Correlation,local_reversal
+heterogeneous,71,Decision only,local_reversal
+heterogeneous,71,Local only,faithful
+heterogeneous,71,Equal weights,faithful
+heterogeneous,71,No local component,local_reversal
+heterogeneous,72,PROXIMA,faithful
+heterogeneous,72,Correlation,local_reversal
+heterogeneous,72,Decision only,local_reversal
+heterogeneous,72,Local only,faithful
+heterogeneous,72,Equal weights,faithful
+heterogeneous,72,No local component,local_reversal
+heterogeneous,73,PROXIMA,faithful
+heterogeneous,73,Correlation,offset
+heterogeneous,73,Decision only,local_reversal
+heterogeneous,73,Local only,faithful
+heterogeneous,73,Equal weights,faithful
+heterogeneous,73,No local component,local_reversal
+heterogeneous,74,PROXIMA,faithful
+heterogeneous,74,Correlation,local_reversal
+heterogeneous,74,Decision only,faithful
+heterogeneous,74,Local only,faithful
+heterogeneous,74,Equal weights,faithful
+heterogeneous,74,No local component,faithful
+heterogeneous,75,PROXIMA,faithful
+heterogeneous,75,Correlation,local_reversal
+heterogeneous,75,Decision only,local_reversal
+heterogeneous,75,Local only,faithful
+heterogeneous,75,Equal weights,faithful
+heterogeneous,75,No local component,local_reversal
+heterogeneous,76,PROXIMA,faithful
+heterogeneous,76,Correlation,offset
+heterogeneous,76,Decision only,local_reversal
+heterogeneous,76,Local only,faithful
+heterogeneous,76,Equal weights,faithful
+heterogeneous,76,No local component,local_reversal
+heterogeneous,77,PROXIMA,faithful
+heterogeneous,77,Correlation,offset
+heterogeneous,77,Decision only,faithful
+heterogeneous,77,Local only,faithful
+heterogeneous,77,Equal weights,faithful
+heterogeneous,77,No local component,local_reversal
+heterogeneous,78,PROXIMA,faithful
+heterogeneous,78,Correlation,offset
+heterogeneous,78,Decision only,local_reversal
+heterogeneous,78,Local only,faithful
+heterogeneous,78,Equal weights,faithful
+heterogeneous,78,No local component,local_reversal
+heterogeneous,79,PROXIMA,faithful
+heterogeneous,79,Correlation,offset
+heterogeneous,79,Decision only,faithful
+heterogeneous,79,Local only,faithful
+heterogeneous,79,Equal weights,faithful
+heterogeneous,79,No local component,local_reversal
+heterogeneous,80,PROXIMA,faithful
+heterogeneous,80,Correlation,offset
+heterogeneous,80,Decision only,local_reversal
+heterogeneous,80,Local only,faithful
+heterogeneous,80,Equal weights,faithful
+heterogeneous,80,No local component,local_reversal
+heterogeneous,81,PROXIMA,faithful
+heterogeneous,81,Correlation,offset
+heterogeneous,81,Decision only,local_reversal
+heterogeneous,81,Local only,faithful
+heterogeneous,81,Equal weights,faithful
+heterogeneous,81,No local component,local_reversal
+heterogeneous,82,PROXIMA,faithful
+heterogeneous,82,Correlation,local_reversal
+heterogeneous,82,Decision only,local_reversal
+heterogeneous,82,Local only,faithful
+heterogeneous,82,Equal weights,faithful
+heterogeneous,82,No local component,local_reversal
+heterogeneous,83,PROXIMA,faithful
+heterogeneous,83,Correlation,offset
+heterogeneous,83,Decision only,local_reversal
+heterogeneous,83,Local only,faithful
+heterogeneous,83,Equal weights,faithful
+heterogeneous,83,No local component,local_reversal
+heterogeneous,84,PROXIMA,faithful
+heterogeneous,84,Correlation,local_reversal
+heterogeneous,84,Decision only,local_reversal
+heterogeneous,84,Local only,faithful
+heterogeneous,84,Equal weights,faithful
+heterogeneous,84,No local component,local_reversal
+heterogeneous,85,PROXIMA,faithful
+heterogeneous,85,Correlation,offset
+heterogeneous,85,Decision only,local_reversal
+heterogeneous,85,Local only,faithful
+heterogeneous,85,Equal weights,faithful
+heterogeneous,85,No local component,local_reversal
+heterogeneous,86,PROXIMA,faithful
+heterogeneous,86,Correlation,offset
+heterogeneous,86,Decision only,faithful
+heterogeneous,86,Local only,faithful
+heterogeneous,86,Equal weights,faithful
+heterogeneous,86,No local component,faithful
+heterogeneous,87,PROXIMA,faithful
+heterogeneous,87,Correlation,offset
+heterogeneous,87,Decision only,faithful
+heterogeneous,87,Local only,faithful
+heterogeneous,87,Equal weights,faithful
+heterogeneous,87,No local component,faithful
+heterogeneous,88,PROXIMA,faithful
+heterogeneous,88,Correlation,offset
+heterogeneous,88,Decision only,local_reversal
+heterogeneous,88,Local only,faithful
+heterogeneous,88,Equal weights,faithful
+heterogeneous,88,No local component,local_reversal
+heterogeneous,89,PROXIMA,faithful
+heterogeneous,89,Correlation,offset
+heterogeneous,89,Decision only,faithful
+heterogeneous,89,Local only,faithful
+heterogeneous,89,Equal weights,faithful
+heterogeneous,89,No local component,local_reversal
+heterogeneous,90,PROXIMA,faithful
+heterogeneous,90,Correlation,offset
+heterogeneous,90,Decision only,local_reversal
+heterogeneous,90,Local only,faithful
+heterogeneous,90,Equal weights,faithful
+heterogeneous,90,No local component,local_reversal
+heterogeneous,91,PROXIMA,faithful
+heterogeneous,91,Correlation,offset
+heterogeneous,91,Decision only,faithful
+heterogeneous,91,Local only,faithful
+heterogeneous,91,Equal weights,faithful
+heterogeneous,91,No local component,local_reversal
+heterogeneous,92,PROXIMA,faithful
+heterogeneous,92,Correlation,local_reversal
+heterogeneous,92,Decision only,faithful
+heterogeneous,92,Local only,faithful
+heterogeneous,92,Equal weights,faithful
+heterogeneous,92,No local component,local_reversal
+heterogeneous,93,PROXIMA,faithful
+heterogeneous,93,Correlation,local_reversal
+heterogeneous,93,Decision only,local_reversal
+heterogeneous,93,Local only,faithful
+heterogeneous,93,Equal weights,faithful
+heterogeneous,93,No local component,local_reversal
+heterogeneous,94,PROXIMA,faithful
+heterogeneous,94,Correlation,local_reversal
+heterogeneous,94,Decision only,faithful
+heterogeneous,94,Local only,faithful
+heterogeneous,94,Equal weights,faithful
+heterogeneous,94,No local component,local_reversal
+heterogeneous,95,PROXIMA,faithful
+heterogeneous,95,Correlation,offset
+heterogeneous,95,Decision only,local_reversal
+heterogeneous,95,Local only,faithful
+heterogeneous,95,Equal weights,faithful
+heterogeneous,95,No local component,local_reversal
+heterogeneous,96,PROXIMA,faithful
+heterogeneous,96,Correlation,offset
+heterogeneous,96,Decision only,local_reversal
+heterogeneous,96,Local only,faithful
+heterogeneous,96,Equal weights,faithful
+heterogeneous,96,No local component,local_reversal
+heterogeneous,97,PROXIMA,faithful
+heterogeneous,97,Correlation,offset
+heterogeneous,97,Decision only,local_reversal
+heterogeneous,97,Local only,faithful
+heterogeneous,97,Equal weights,faithful
+heterogeneous,97,No local component,local_reversal
+heterogeneous,98,PROXIMA,faithful
+heterogeneous,98,Correlation,local_reversal
+heterogeneous,98,Decision only,local_reversal
+heterogeneous,98,Local only,faithful
+heterogeneous,98,Equal weights,faithful
+heterogeneous,98,No local component,local_reversal
+heterogeneous,99,PROXIMA,faithful
+heterogeneous,99,Correlation,offset
+heterogeneous,99,Decision only,faithful
+heterogeneous,99,Local only,faithful
+heterogeneous,99,Equal weights,faithful
+heterogeneous,99,No local component,local_reversal
+noisy,0,PROXIMA,faithful
+noisy,0,Correlation,local_reversal
+noisy,0,Decision only,local_reversal
+noisy,0,Local only,faithful
+noisy,0,Equal weights,faithful
+noisy,0,No local component,local_reversal
+noisy,1,PROXIMA,faithful
+noisy,1,Correlation,local_reversal
+noisy,1,Decision only,local_reversal
+noisy,1,Local only,faithful
+noisy,1,Equal weights,faithful
+noisy,1,No local component,local_reversal
+noisy,2,PROXIMA,faithful
+noisy,2,Correlation,offset
+noisy,2,Decision only,local_reversal
+noisy,2,Local only,faithful
+noisy,2,Equal weights,faithful
+noisy,2,No local component,local_reversal
+noisy,3,PROXIMA,faithful
+noisy,3,Correlation,offset
+noisy,3,Decision only,faithful
+noisy,3,Local only,faithful
+noisy,3,Equal weights,faithful
+noisy,3,No local component,faithful
+noisy,4,PROXIMA,faithful
+noisy,4,Correlation,offset
+noisy,4,Decision only,faithful
+noisy,4,Local only,faithful
+noisy,4,Equal weights,faithful
+noisy,4,No local component,faithful
+noisy,5,PROXIMA,local_reversal
+noisy,5,Correlation,local_reversal
+noisy,5,Decision only,local_reversal
+noisy,5,Local only,faithful
+noisy,5,Equal weights,faithful
+noisy,5,No local component,local_reversal
+noisy,6,PROXIMA,local_reversal
+noisy,6,Correlation,local_reversal
+noisy,6,Decision only,local_reversal
+noisy,6,Local only,faithful
+noisy,6,Equal weights,local_reversal
+noisy,6,No local component,local_reversal
+noisy,7,PROXIMA,faithful
+noisy,7,Correlation,local_reversal
+noisy,7,Decision only,faithful
+noisy,7,Local only,faithful
+noisy,7,Equal weights,faithful
+noisy,7,No local component,local_reversal
+noisy,8,PROXIMA,faithful
+noisy,8,Correlation,local_reversal
+noisy,8,Decision only,local_reversal
+noisy,8,Local only,faithful
+noisy,8,Equal weights,faithful
+noisy,8,No local component,local_reversal
+noisy,9,PROXIMA,local_reversal
+noisy,9,Correlation,local_reversal
+noisy,9,Decision only,local_reversal
+noisy,9,Local only,faithful
+noisy,9,Equal weights,faithful
+noisy,9,No local component,local_reversal
+noisy,10,PROXIMA,faithful
+noisy,10,Correlation,faithful
+noisy,10,Decision only,faithful
+noisy,10,Local only,faithful
+noisy,10,Equal weights,faithful
+noisy,10,No local component,faithful
+noisy,11,PROXIMA,faithful
+noisy,11,Correlation,local_reversal
+noisy,11,Decision only,faithful
+noisy,11,Local only,faithful
+noisy,11,Equal weights,faithful
+noisy,11,No local component,faithful
+noisy,12,PROXIMA,local_reversal
+noisy,12,Correlation,offset
+noisy,12,Decision only,local_reversal
+noisy,12,Local only,faithful
+noisy,12,Equal weights,local_reversal
+noisy,12,No local component,local_reversal
+noisy,13,PROXIMA,faithful
+noisy,13,Correlation,local_reversal
+noisy,13,Decision only,faithful
+noisy,13,Local only,faithful
+noisy,13,Equal weights,faithful
+noisy,13,No local component,faithful
+noisy,14,PROXIMA,faithful
+noisy,14,Correlation,faithful
+noisy,14,Decision only,faithful
+noisy,14,Local only,offset
+noisy,14,Equal weights,faithful
+noisy,14,No local component,faithful
+noisy,15,PROXIMA,faithful
+noisy,15,Correlation,offset
+noisy,15,Decision only,local_reversal
+noisy,15,Local only,faithful
+noisy,15,Equal weights,faithful
+noisy,15,No local component,local_reversal
+noisy,16,PROXIMA,local_reversal
+noisy,16,Correlation,local_reversal
+noisy,16,Decision only,local_reversal
+noisy,16,Local only,faithful
+noisy,16,Equal weights,faithful
+noisy,16,No local component,local_reversal
+noisy,17,PROXIMA,faithful
+noisy,17,Correlation,offset
+noisy,17,Decision only,local_reversal
+noisy,17,Local only,faithful
+noisy,17,Equal weights,faithful
+noisy,17,No local component,local_reversal
+noisy,18,PROXIMA,local_reversal
+noisy,18,Correlation,local_reversal
+noisy,18,Decision only,local_reversal
+noisy,18,Local only,faithful
+noisy,18,Equal weights,local_reversal
+noisy,18,No local component,local_reversal
+noisy,19,PROXIMA,faithful
+noisy,19,Correlation,offset
+noisy,19,Decision only,local_reversal
+noisy,19,Local only,faithful
+noisy,19,Equal weights,faithful
+noisy,19,No local component,local_reversal
+noisy,20,PROXIMA,faithful
+noisy,20,Correlation,local_reversal
+noisy,20,Decision only,local_reversal
+noisy,20,Local only,faithful
+noisy,20,Equal weights,faithful
+noisy,20,No local component,local_reversal
+noisy,21,PROXIMA,local_reversal
+noisy,21,Correlation,offset
+noisy,21,Decision only,local_reversal
+noisy,21,Local only,offset
+noisy,21,Equal weights,faithful
+noisy,21,No local component,local_reversal
+noisy,22,PROXIMA,local_reversal
+noisy,22,Correlation,offset
+noisy,22,Decision only,local_reversal
+noisy,22,Local only,faithful
+noisy,22,Equal weights,local_reversal
+noisy,22,No local component,local_reversal
+noisy,23,PROXIMA,faithful
+noisy,23,Correlation,faithful
+noisy,23,Decision only,faithful
+noisy,23,Local only,faithful
+noisy,23,Equal weights,faithful
+noisy,23,No local component,faithful
+noisy,24,PROXIMA,faithful
+noisy,24,Correlation,faithful
+noisy,24,Decision only,faithful
+noisy,24,Local only,faithful
+noisy,24,Equal weights,faithful
+noisy,24,No local component,faithful
+noisy,25,PROXIMA,faithful
+noisy,25,Correlation,offset
+noisy,25,Decision only,faithful
+noisy,25,Local only,faithful
+noisy,25,Equal weights,faithful
+noisy,25,No local component,faithful
+noisy,26,PROXIMA,local_reversal
+noisy,26,Correlation,local_reversal
+noisy,26,Decision only,local_reversal
+noisy,26,Local only,faithful
+noisy,26,Equal weights,faithful
+noisy,26,No local component,local_reversal
+noisy,27,PROXIMA,faithful
+noisy,27,Correlation,local_reversal
+noisy,27,Decision only,local_reversal
+noisy,27,Local only,faithful
+noisy,27,Equal weights,faithful
+noisy,27,No local component,local_reversal
+noisy,28,PROXIMA,faithful
+noisy,28,Correlation,local_reversal
+noisy,28,Decision only,local_reversal
+noisy,28,Local only,faithful
+noisy,28,Equal weights,faithful
+noisy,28,No local component,local_reversal
+noisy,29,PROXIMA,local_reversal
+noisy,29,Correlation,local_reversal
+noisy,29,Decision only,local_reversal
+noisy,29,Local only,faithful
+noisy,29,Equal weights,faithful
+noisy,29,No local component,local_reversal
+noisy,30,PROXIMA,faithful
+noisy,30,Correlation,local_reversal
+noisy,30,Decision only,faithful
+noisy,30,Local only,faithful
+noisy,30,Equal weights,faithful
+noisy,30,No local component,local_reversal
+noisy,31,PROXIMA,local_reversal
+noisy,31,Correlation,offset
+noisy,31,Decision only,local_reversal
+noisy,31,Local only,faithful
+noisy,31,Equal weights,faithful
+noisy,31,No local component,local_reversal
+noisy,32,PROXIMA,local_reversal
+noisy,32,Correlation,local_reversal
+noisy,32,Decision only,local_reversal
+noisy,32,Local only,faithful
+noisy,32,Equal weights,faithful
+noisy,32,No local component,local_reversal
+noisy,33,PROXIMA,faithful
+noisy,33,Correlation,local_reversal
+noisy,33,Decision only,local_reversal
+noisy,33,Local only,faithful
+noisy,33,Equal weights,faithful
+noisy,33,No local component,local_reversal
+noisy,34,PROXIMA,faithful
+noisy,34,Correlation,local_reversal
+noisy,34,Decision only,faithful
+noisy,34,Local only,faithful
+noisy,34,Equal weights,faithful
+noisy,34,No local component,faithful
+noisy,35,PROXIMA,faithful
+noisy,35,Correlation,local_reversal
+noisy,35,Decision only,local_reversal
+noisy,35,Local only,faithful
+noisy,35,Equal weights,faithful
+noisy,35,No local component,local_reversal
+noisy,36,PROXIMA,faithful
+noisy,36,Correlation,local_reversal
+noisy,36,Decision only,local_reversal
+noisy,36,Local only,faithful
+noisy,36,Equal weights,faithful
+noisy,36,No local component,local_reversal
+noisy,37,PROXIMA,local_reversal
+noisy,37,Correlation,local_reversal
+noisy,37,Decision only,local_reversal
+noisy,37,Local only,offset
+noisy,37,Equal weights,faithful
+noisy,37,No local component,local_reversal
+noisy,38,PROXIMA,faithful
+noisy,38,Correlation,faithful
+noisy,38,Decision only,local_reversal
+noisy,38,Local only,faithful
+noisy,38,Equal weights,faithful
+noisy,38,No local component,faithful
+noisy,39,PROXIMA,local_reversal
+noisy,39,Correlation,local_reversal
+noisy,39,Decision only,local_reversal
+noisy,39,Local only,faithful
+noisy,39,Equal weights,local_reversal
+noisy,39,No local component,local_reversal
+noisy,40,PROXIMA,local_reversal
+noisy,40,Correlation,local_reversal
+noisy,40,Decision only,local_reversal
+noisy,40,Local only,faithful
+noisy,40,Equal weights,local_reversal
+noisy,40,No local component,local_reversal
+noisy,41,PROXIMA,faithful
+noisy,41,Correlation,offset
+noisy,41,Decision only,faithful
+noisy,41,Local only,faithful
+noisy,41,Equal weights,faithful
+noisy,41,No local component,faithful
+noisy,42,PROXIMA,local_reversal
+noisy,42,Correlation,local_reversal
+noisy,42,Decision only,local_reversal
+noisy,42,Local only,faithful
+noisy,42,Equal weights,faithful
+noisy,42,No local component,local_reversal
+noisy,43,PROXIMA,faithful
+noisy,43,Correlation,offset
+noisy,43,Decision only,local_reversal
+noisy,43,Local only,faithful
+noisy,43,Equal weights,faithful
+noisy,43,No local component,local_reversal
+noisy,44,PROXIMA,faithful
+noisy,44,Correlation,local_reversal
+noisy,44,Decision only,faithful
+noisy,44,Local only,faithful
+noisy,44,Equal weights,faithful
+noisy,44,No local component,local_reversal
+noisy,45,PROXIMA,local_reversal
+noisy,45,Correlation,local_reversal
+noisy,45,Decision only,local_reversal
+noisy,45,Local only,offset
+noisy,45,Equal weights,local_reversal
+noisy,45,No local component,local_reversal
+noisy,46,PROXIMA,faithful
+noisy,46,Correlation,offset
+noisy,46,Decision only,faithful
+noisy,46,Local only,faithful
+noisy,46,Equal weights,faithful
+noisy,46,No local component,local_reversal
+noisy,47,PROXIMA,local_reversal
+noisy,47,Correlation,local_reversal
+noisy,47,Decision only,faithful
+noisy,47,Local only,faithful
+noisy,47,Equal weights,faithful
+noisy,47,No local component,local_reversal
+noisy,48,PROXIMA,faithful
+noisy,48,Correlation,local_reversal
+noisy,48,Decision only,faithful
+noisy,48,Local only,faithful
+noisy,48,Equal weights,faithful
+noisy,48,No local component,faithful
+noisy,49,PROXIMA,faithful
+noisy,49,Correlation,faithful
+noisy,49,Decision only,faithful
+noisy,49,Local only,faithful
+noisy,49,Equal weights,faithful
+noisy,49,No local component,faithful
+noisy,50,PROXIMA,faithful
+noisy,50,Correlation,local_reversal
+noisy,50,Decision only,faithful
+noisy,50,Local only,faithful
+noisy,50,Equal weights,faithful
+noisy,50,No local component,local_reversal
+noisy,51,PROXIMA,faithful
+noisy,51,Correlation,local_reversal
+noisy,51,Decision only,faithful
+noisy,51,Local only,faithful
+noisy,51,Equal weights,faithful
+noisy,51,No local component,faithful
+noisy,52,PROXIMA,faithful
+noisy,52,Correlation,offset
+noisy,52,Decision only,local_reversal
+noisy,52,Local only,offset
+noisy,52,Equal weights,faithful
+noisy,52,No local component,local_reversal
+noisy,53,PROXIMA,faithful
+noisy,53,Correlation,offset
+noisy,53,Decision only,local_reversal
+noisy,53,Local only,faithful
+noisy,53,Equal weights,local_reversal
+noisy,53,No local component,local_reversal
+noisy,54,PROXIMA,local_reversal
+noisy,54,Correlation,local_reversal
+noisy,54,Decision only,faithful
+noisy,54,Local only,offset
+noisy,54,Equal weights,faithful
+noisy,54,No local component,local_reversal
+noisy,55,PROXIMA,faithful
+noisy,55,Correlation,local_reversal
+noisy,55,Decision only,faithful
+noisy,55,Local only,faithful
+noisy,55,Equal weights,faithful
+noisy,55,No local component,faithful
+noisy,56,PROXIMA,faithful
+noisy,56,Correlation,local_reversal
+noisy,56,Decision only,faithful
+noisy,56,Local only,faithful
+noisy,56,Equal weights,faithful
+noisy,56,No local component,faithful
+noisy,57,PROXIMA,local_reversal
+noisy,57,Correlation,local_reversal
+noisy,57,Decision only,local_reversal
+noisy,57,Local only,faithful
+noisy,57,Equal weights,local_reversal
+noisy,57,No local component,local_reversal
+noisy,58,PROXIMA,faithful
+noisy,58,Correlation,offset
+noisy,58,Decision only,local_reversal
+noisy,58,Local only,faithful
+noisy,58,Equal weights,faithful
+noisy,58,No local component,local_reversal
+noisy,59,PROXIMA,faithful
+noisy,59,Correlation,offset
+noisy,59,Decision only,faithful
+noisy,59,Local only,faithful
+noisy,59,Equal weights,faithful
+noisy,59,No local component,faithful
+noisy,60,PROXIMA,faithful
+noisy,60,Correlation,local_reversal
+noisy,60,Decision only,faithful
+noisy,60,Local only,faithful
+noisy,60,Equal weights,faithful
+noisy,60,No local component,local_reversal
+noisy,61,PROXIMA,faithful
+noisy,61,Correlation,offset
+noisy,61,Decision only,faithful
+noisy,61,Local only,faithful
+noisy,61,Equal weights,faithful
+noisy,61,No local component,faithful
+noisy,62,PROXIMA,local_reversal
+noisy,62,Correlation,local_reversal
+noisy,62,Decision only,local_reversal
+noisy,62,Local only,faithful
+noisy,62,Equal weights,local_reversal
+noisy,62,No local component,local_reversal
+noisy,63,PROXIMA,faithful
+noisy,63,Correlation,local_reversal
+noisy,63,Decision only,faithful
+noisy,63,Local only,faithful
+noisy,63,Equal weights,faithful
+noisy,63,No local component,local_reversal
+noisy,64,PROXIMA,offset
+noisy,64,Correlation,offset
+noisy,64,Decision only,local_reversal
+noisy,64,Local only,faithful
+noisy,64,Equal weights,faithful
+noisy,64,No local component,local_reversal
+noisy,65,PROXIMA,local_reversal
+noisy,65,Correlation,offset
+noisy,65,Decision only,local_reversal
+noisy,65,Local only,offset
+noisy,65,Equal weights,local_reversal
+noisy,65,No local component,local_reversal
+noisy,66,PROXIMA,faithful
+noisy,66,Correlation,local_reversal
+noisy,66,Decision only,faithful
+noisy,66,Local only,faithful
+noisy,66,Equal weights,faithful
+noisy,66,No local component,local_reversal
+noisy,67,PROXIMA,faithful
+noisy,67,Correlation,offset
+noisy,67,Decision only,local_reversal
+noisy,67,Local only,faithful
+noisy,67,Equal weights,faithful
+noisy,67,No local component,local_reversal
+noisy,68,PROXIMA,local_reversal
+noisy,68,Correlation,local_reversal
+noisy,68,Decision only,local_reversal
+noisy,68,Local only,faithful
+noisy,68,Equal weights,faithful
+noisy,68,No local component,local_reversal
+noisy,69,PROXIMA,faithful
+noisy,69,Correlation,faithful
+noisy,69,Decision only,faithful
+noisy,69,Local only,offset
+noisy,69,Equal weights,faithful
+noisy,69,No local component,faithful
+noisy,70,PROXIMA,local_reversal
+noisy,70,Correlation,offset
+noisy,70,Decision only,local_reversal
+noisy,70,Local only,faithful
+noisy,70,Equal weights,local_reversal
+noisy,70,No local component,local_reversal
+noisy,71,PROXIMA,local_reversal
+noisy,71,Correlation,offset
+noisy,71,Decision only,local_reversal
+noisy,71,Local only,faithful
+noisy,71,Equal weights,faithful
+noisy,71,No local component,local_reversal
+noisy,72,PROXIMA,faithful
+noisy,72,Correlation,offset
+noisy,72,Decision only,local_reversal
+noisy,72,Local only,offset
+noisy,72,Equal weights,faithful
+noisy,72,No local component,local_reversal
+noisy,73,PROXIMA,faithful
+noisy,73,Correlation,faithful
+noisy,73,Decision only,faithful
+noisy,73,Local only,faithful
+noisy,73,Equal weights,faithful
+noisy,73,No local component,faithful
+noisy,74,PROXIMA,faithful
+noisy,74,Correlation,offset
+noisy,74,Decision only,local_reversal
+noisy,74,Local only,faithful
+noisy,74,Equal weights,faithful
+noisy,74,No local component,local_reversal
+noisy,75,PROXIMA,local_reversal
+noisy,75,Correlation,offset
+noisy,75,Decision only,local_reversal
+noisy,75,Local only,faithful
+noisy,75,Equal weights,local_reversal
+noisy,75,No local component,local_reversal
+noisy,76,PROXIMA,faithful
+noisy,76,Correlation,local_reversal
+noisy,76,Decision only,faithful
+noisy,76,Local only,faithful
+noisy,76,Equal weights,faithful
+noisy,76,No local component,local_reversal
+noisy,77,PROXIMA,faithful
+noisy,77,Correlation,faithful
+noisy,77,Decision only,faithful
+noisy,77,Local only,faithful
+noisy,77,Equal weights,faithful
+noisy,77,No local component,faithful
+noisy,78,PROXIMA,faithful
+noisy,78,Correlation,local_reversal
+noisy,78,Decision only,local_reversal
+noisy,78,Local only,faithful
+noisy,78,Equal weights,faithful
+noisy,78,No local component,local_reversal
+noisy,79,PROXIMA,local_reversal
+noisy,79,Correlation,local_reversal
+noisy,79,Decision only,local_reversal
+noisy,79,Local only,faithful
+noisy,79,Equal weights,local_reversal
+noisy,79,No local component,local_reversal
+noisy,80,PROXIMA,faithful
+noisy,80,Correlation,offset
+noisy,80,Decision only,faithful
+noisy,80,Local only,offset
+noisy,80,Equal weights,faithful
+noisy,80,No local component,faithful
+noisy,81,PROXIMA,faithful
+noisy,81,Correlation,offset
+noisy,81,Decision only,faithful
+noisy,81,Local only,faithful
+noisy,81,Equal weights,faithful
+noisy,81,No local component,faithful
+noisy,82,PROXIMA,faithful
+noisy,82,Correlation,offset
+noisy,82,Decision only,faithful
+noisy,82,Local only,faithful
+noisy,82,Equal weights,faithful
+noisy,82,No local component,faithful
+noisy,83,PROXIMA,faithful
+noisy,83,Correlation,faithful
+noisy,83,Decision only,local_reversal
+noisy,83,Local only,faithful
+noisy,83,Equal weights,faithful
+noisy,83,No local component,faithful
+noisy,84,PROXIMA,faithful
+noisy,84,Correlation,offset
+noisy,84,Decision only,faithful
+noisy,84,Local only,faithful
+noisy,84,Equal weights,faithful
+noisy,84,No local component,local_reversal
+noisy,85,PROXIMA,faithful
+noisy,85,Correlation,offset
+noisy,85,Decision only,faithful
+noisy,85,Local only,faithful
+noisy,85,Equal weights,faithful
+noisy,85,No local component,faithful
+noisy,86,PROXIMA,local_reversal
+noisy,86,Correlation,local_reversal
+noisy,86,Decision only,faithful
+noisy,86,Local only,faithful
+noisy,86,Equal weights,faithful
+noisy,86,No local component,local_reversal
+noisy,87,PROXIMA,faithful
+noisy,87,Correlation,local_reversal
+noisy,87,Decision only,faithful
+noisy,87,Local only,faithful
+noisy,87,Equal weights,faithful
+noisy,87,No local component,faithful
+noisy,88,PROXIMA,faithful
+noisy,88,Correlation,offset
+noisy,88,Decision only,local_reversal
+noisy,88,Local only,faithful
+noisy,88,Equal weights,faithful
+noisy,88,No local component,local_reversal
+noisy,89,PROXIMA,faithful
+noisy,89,Correlation,local_reversal
+noisy,89,Decision only,faithful
+noisy,89,Local only,faithful
+noisy,89,Equal weights,faithful
+noisy,89,No local component,local_reversal
+noisy,90,PROXIMA,local_reversal
+noisy,90,Correlation,offset
+noisy,90,Decision only,local_reversal
+noisy,90,Local only,faithful
+noisy,90,Equal weights,faithful
+noisy,90,No local component,local_reversal
+noisy,91,PROXIMA,faithful
+noisy,91,Correlation,local_reversal
+noisy,91,Decision only,faithful
+noisy,91,Local only,offset
+noisy,91,Equal weights,faithful
+noisy,91,No local component,local_reversal
+noisy,92,PROXIMA,faithful
+noisy,92,Correlation,local_reversal
+noisy,92,Decision only,local_reversal
+noisy,92,Local only,faithful
+noisy,92,Equal weights,faithful
+noisy,92,No local component,local_reversal
+noisy,93,PROXIMA,faithful
+noisy,93,Correlation,local_reversal
+noisy,93,Decision only,local_reversal
+noisy,93,Local only,faithful
+noisy,93,Equal weights,faithful
+noisy,93,No local component,local_reversal
+noisy,94,PROXIMA,faithful
+noisy,94,Correlation,offset
+noisy,94,Decision only,faithful
+noisy,94,Local only,faithful
+noisy,94,Equal weights,faithful
+noisy,94,No local component,faithful
+noisy,95,PROXIMA,local_reversal
+noisy,95,Correlation,local_reversal
+noisy,95,Decision only,faithful
+noisy,95,Local only,faithful
+noisy,95,Equal weights,local_reversal
+noisy,95,No local component,local_reversal
+noisy,96,PROXIMA,faithful
+noisy,96,Correlation,faithful
+noisy,96,Decision only,faithful
+noisy,96,Local only,faithful
+noisy,96,Equal weights,faithful
+noisy,96,No local component,faithful
+noisy,97,PROXIMA,local_reversal
+noisy,97,Correlation,local_reversal
+noisy,97,Decision only,faithful
+noisy,97,Local only,local_reversal
+noisy,97,Equal weights,local_reversal
+noisy,97,No local component,local_reversal
+noisy,98,PROXIMA,local_reversal
+noisy,98,Correlation,local_reversal
+noisy,98,Decision only,local_reversal
+noisy,98,Local only,offset
+noisy,98,Equal weights,local_reversal
+noisy,98,No local component,local_reversal
+noisy,99,PROXIMA,local_reversal
+noisy,99,Correlation,local_reversal
+noisy,99,Decision only,local_reversal
+noisy,99,Local only,faithful
+noisy,99,Equal weights,local_reversal
+noisy,99,No local component,local_reversal
+shifted,0,PROXIMA,faithful
+shifted,0,Correlation,offset
+shifted,0,Decision only,faithful
+shifted,0,Local only,faithful
+shifted,0,Equal weights,faithful
+shifted,0,No local component,local_reversal
+shifted,1,PROXIMA,faithful
+shifted,1,Correlation,offset
+shifted,1,Decision only,local_reversal
+shifted,1,Local only,faithful
+shifted,1,Equal weights,faithful
+shifted,1,No local component,local_reversal
+shifted,2,PROXIMA,faithful
+shifted,2,Correlation,offset
+shifted,2,Decision only,local_reversal
+shifted,2,Local only,faithful
+shifted,2,Equal weights,faithful
+shifted,2,No local component,local_reversal
+shifted,3,PROXIMA,faithful
+shifted,3,Correlation,local_reversal
+shifted,3,Decision only,local_reversal
+shifted,3,Local only,faithful
+shifted,3,Equal weights,faithful
+shifted,3,No local component,local_reversal
+shifted,4,PROXIMA,faithful
+shifted,4,Correlation,local_reversal
+shifted,4,Decision only,local_reversal
+shifted,4,Local only,faithful
+shifted,4,Equal weights,faithful
+shifted,4,No local component,local_reversal
+shifted,5,PROXIMA,faithful
+shifted,5,Correlation,local_reversal
+shifted,5,Decision only,local_reversal
+shifted,5,Local only,faithful
+shifted,5,Equal weights,faithful
+shifted,5,No local component,local_reversal
+shifted,6,PROXIMA,faithful
+shifted,6,Correlation,offset
+shifted,6,Decision only,faithful
+shifted,6,Local only,faithful
+shifted,6,Equal weights,faithful
+shifted,6,No local component,faithful
+shifted,7,PROXIMA,faithful
+shifted,7,Correlation,offset
+shifted,7,Decision only,local_reversal
+shifted,7,Local only,faithful
+shifted,7,Equal weights,faithful
+shifted,7,No local component,local_reversal
+shifted,8,PROXIMA,faithful
+shifted,8,Correlation,offset
+shifted,8,Decision only,local_reversal
+shifted,8,Local only,faithful
+shifted,8,Equal weights,faithful
+shifted,8,No local component,local_reversal
+shifted,9,PROXIMA,faithful
+shifted,9,Correlation,offset
+shifted,9,Decision only,local_reversal
+shifted,9,Local only,faithful
+shifted,9,Equal weights,faithful
+shifted,9,No local component,local_reversal
+shifted,10,PROXIMA,faithful
+shifted,10,Correlation,local_reversal
+shifted,10,Decision only,local_reversal
+shifted,10,Local only,faithful
+shifted,10,Equal weights,faithful
+shifted,10,No local component,local_reversal
+shifted,11,PROXIMA,faithful
+shifted,11,Correlation,offset
+shifted,11,Decision only,faithful
+shifted,11,Local only,faithful
+shifted,11,Equal weights,faithful
+shifted,11,No local component,local_reversal
+shifted,12,PROXIMA,faithful
+shifted,12,Correlation,local_reversal
+shifted,12,Decision only,local_reversal
+shifted,12,Local only,faithful
+shifted,12,Equal weights,faithful
+shifted,12,No local component,local_reversal
+shifted,13,PROXIMA,faithful
+shifted,13,Correlation,offset
+shifted,13,Decision only,faithful
+shifted,13,Local only,faithful
+shifted,13,Equal weights,faithful
+shifted,13,No local component,local_reversal
+shifted,14,PROXIMA,faithful
+shifted,14,Correlation,offset
+shifted,14,Decision only,faithful
+shifted,14,Local only,faithful
+shifted,14,Equal weights,faithful
+shifted,14,No local component,faithful
+shifted,15,PROXIMA,faithful
+shifted,15,Correlation,local_reversal
+shifted,15,Decision only,local_reversal
+shifted,15,Local only,faithful
+shifted,15,Equal weights,faithful
+shifted,15,No local component,local_reversal
+shifted,16,PROXIMA,faithful
+shifted,16,Correlation,local_reversal
+shifted,16,Decision only,faithful
+shifted,16,Local only,faithful
+shifted,16,Equal weights,faithful
+shifted,16,No local component,local_reversal
+shifted,17,PROXIMA,faithful
+shifted,17,Correlation,offset
+shifted,17,Decision only,local_reversal
+shifted,17,Local only,faithful
+shifted,17,Equal weights,faithful
+shifted,17,No local component,local_reversal
+shifted,18,PROXIMA,faithful
+shifted,18,Correlation,local_reversal
+shifted,18,Decision only,faithful
+shifted,18,Local only,faithful
+shifted,18,Equal weights,faithful
+shifted,18,No local component,local_reversal
+shifted,19,PROXIMA,faithful
+shifted,19,Correlation,local_reversal
+shifted,19,Decision only,local_reversal
+shifted,19,Local only,faithful
+shifted,19,Equal weights,faithful
+shifted,19,No local component,local_reversal
+shifted,20,PROXIMA,faithful
+shifted,20,Correlation,offset
+shifted,20,Decision only,local_reversal
+shifted,20,Local only,faithful
+shifted,20,Equal weights,faithful
+shifted,20,No local component,local_reversal
+shifted,21,PROXIMA,faithful
+shifted,21,Correlation,offset
+shifted,21,Decision only,faithful
+shifted,21,Local only,faithful
+shifted,21,Equal weights,faithful
+shifted,21,No local component,local_reversal
+shifted,22,PROXIMA,faithful
+shifted,22,Correlation,offset
+shifted,22,Decision only,local_reversal
+shifted,22,Local only,faithful
+shifted,22,Equal weights,faithful
+shifted,22,No local component,local_reversal
+shifted,23,PROXIMA,faithful
+shifted,23,Correlation,offset
+shifted,23,Decision only,local_reversal
+shifted,23,Local only,faithful
+shifted,23,Equal weights,faithful
+shifted,23,No local component,local_reversal
+shifted,24,PROXIMA,faithful
+shifted,24,Correlation,offset
+shifted,24,Decision only,local_reversal
+shifted,24,Local only,faithful
+shifted,24,Equal weights,faithful
+shifted,24,No local component,local_reversal
+shifted,25,PROXIMA,faithful
+shifted,25,Correlation,offset
+shifted,25,Decision only,local_reversal
+shifted,25,Local only,faithful
+shifted,25,Equal weights,faithful
+shifted,25,No local component,local_reversal
+shifted,26,PROXIMA,faithful
+shifted,26,Correlation,local_reversal
+shifted,26,Decision only,local_reversal
+shifted,26,Local only,faithful
+shifted,26,Equal weights,faithful
+shifted,26,No local component,local_reversal
+shifted,27,PROXIMA,faithful
+shifted,27,Correlation,local_reversal
+shifted,27,Decision only,local_reversal
+shifted,27,Local only,faithful
+shifted,27,Equal weights,faithful
+shifted,27,No local component,local_reversal
+shifted,28,PROXIMA,faithful
+shifted,28,Correlation,local_reversal
+shifted,28,Decision only,faithful
+shifted,28,Local only,faithful
+shifted,28,Equal weights,faithful
+shifted,28,No local component,local_reversal
+shifted,29,PROXIMA,faithful
+shifted,29,Correlation,local_reversal
+shifted,29,Decision only,local_reversal
+shifted,29,Local only,faithful
+shifted,29,Equal weights,faithful
+shifted,29,No local component,local_reversal
+shifted,30,PROXIMA,faithful
+shifted,30,Correlation,local_reversal
+shifted,30,Decision only,local_reversal
+shifted,30,Local only,faithful
+shifted,30,Equal weights,faithful
+shifted,30,No local component,local_reversal
+shifted,31,PROXIMA,faithful
+shifted,31,Correlation,local_reversal
+shifted,31,Decision only,local_reversal
+shifted,31,Local only,faithful
+shifted,31,Equal weights,faithful
+shifted,31,No local component,local_reversal
+shifted,32,PROXIMA,faithful
+shifted,32,Correlation,offset
+shifted,32,Decision only,local_reversal
+shifted,32,Local only,faithful
+shifted,32,Equal weights,faithful
+shifted,32,No local component,local_reversal
+shifted,33,PROXIMA,faithful
+shifted,33,Correlation,local_reversal
+shifted,33,Decision only,faithful
+shifted,33,Local only,faithful
+shifted,33,Equal weights,faithful
+shifted,33,No local component,local_reversal
+shifted,34,PROXIMA,faithful
+shifted,34,Correlation,local_reversal
+shifted,34,Decision only,faithful
+shifted,34,Local only,faithful
+shifted,34,Equal weights,faithful
+shifted,34,No local component,local_reversal
+shifted,35,PROXIMA,faithful
+shifted,35,Correlation,local_reversal
+shifted,35,Decision only,local_reversal
+shifted,35,Local only,faithful
+shifted,35,Equal weights,faithful
+shifted,35,No local component,local_reversal
+shifted,36,PROXIMA,faithful
+shifted,36,Correlation,local_reversal
+shifted,36,Decision only,local_reversal
+shifted,36,Local only,faithful
+shifted,36,Equal weights,faithful
+shifted,36,No local component,local_reversal
+shifted,37,PROXIMA,faithful
+shifted,37,Correlation,offset
+shifted,37,Decision only,local_reversal
+shifted,37,Local only,faithful
+shifted,37,Equal weights,faithful
+shifted,37,No local component,local_reversal
+shifted,38,PROXIMA,faithful
+shifted,38,Correlation,local_reversal
+shifted,38,Decision only,faithful
+shifted,38,Local only,faithful
+shifted,38,Equal weights,faithful
+shifted,38,No local component,local_reversal
+shifted,39,PROXIMA,faithful
+shifted,39,Correlation,local_reversal
+shifted,39,Decision only,local_reversal
+shifted,39,Local only,faithful
+shifted,39,Equal weights,faithful
+shifted,39,No local component,local_reversal
+shifted,40,PROXIMA,faithful
+shifted,40,Correlation,offset
+shifted,40,Decision only,local_reversal
+shifted,40,Local only,faithful
+shifted,40,Equal weights,faithful
+shifted,40,No local component,local_reversal
+shifted,41,PROXIMA,faithful
+shifted,41,Correlation,local_reversal
+shifted,41,Decision only,local_reversal
+shifted,41,Local only,faithful
+shifted,41,Equal weights,faithful
+shifted,41,No local component,local_reversal
+shifted,42,PROXIMA,faithful
+shifted,42,Correlation,offset
+shifted,42,Decision only,local_reversal
+shifted,42,Local only,faithful
+shifted,42,Equal weights,faithful
+shifted,42,No local component,local_reversal
+shifted,43,PROXIMA,faithful
+shifted,43,Correlation,local_reversal
+shifted,43,Decision only,faithful
+shifted,43,Local only,faithful
+shifted,43,Equal weights,faithful
+shifted,43,No local component,local_reversal
+shifted,44,PROXIMA,faithful
+shifted,44,Correlation,offset
+shifted,44,Decision only,local_reversal
+shifted,44,Local only,faithful
+shifted,44,Equal weights,faithful
+shifted,44,No local component,local_reversal
+shifted,45,PROXIMA,faithful
+shifted,45,Correlation,local_reversal
+shifted,45,Decision only,local_reversal
+shifted,45,Local only,faithful
+shifted,45,Equal weights,faithful
+shifted,45,No local component,local_reversal
+shifted,46,PROXIMA,faithful
+shifted,46,Correlation,offset
+shifted,46,Decision only,local_reversal
+shifted,46,Local only,faithful
+shifted,46,Equal weights,faithful
+shifted,46,No local component,local_reversal
+shifted,47,PROXIMA,faithful
+shifted,47,Correlation,offset
+shifted,47,Decision only,faithful
+shifted,47,Local only,faithful
+shifted,47,Equal weights,faithful
+shifted,47,No local component,faithful
+shifted,48,PROXIMA,faithful
+shifted,48,Correlation,offset
+shifted,48,Decision only,local_reversal
+shifted,48,Local only,faithful
+shifted,48,Equal weights,faithful
+shifted,48,No local component,local_reversal
+shifted,49,PROXIMA,faithful
+shifted,49,Correlation,local_reversal
+shifted,49,Decision only,local_reversal
+shifted,49,Local only,faithful
+shifted,49,Equal weights,faithful
+shifted,49,No local component,local_reversal
+shifted,50,PROXIMA,faithful
+shifted,50,Correlation,local_reversal
+shifted,50,Decision only,local_reversal
+shifted,50,Local only,faithful
+shifted,50,Equal weights,faithful
+shifted,50,No local component,local_reversal
+shifted,51,PROXIMA,faithful
+shifted,51,Correlation,local_reversal
+shifted,51,Decision only,local_reversal
+shifted,51,Local only,faithful
+shifted,51,Equal weights,faithful
+shifted,51,No local component,local_reversal
+shifted,52,PROXIMA,local_reversal
+shifted,52,Correlation,offset
+shifted,52,Decision only,local_reversal
+shifted,52,Local only,faithful
+shifted,52,Equal weights,faithful
+shifted,52,No local component,local_reversal
+shifted,53,PROXIMA,faithful
+shifted,53,Correlation,offset
+shifted,53,Decision only,local_reversal
+shifted,53,Local only,faithful
+shifted,53,Equal weights,faithful
+shifted,53,No local component,local_reversal
+shifted,54,PROXIMA,faithful
+shifted,54,Correlation,offset
+shifted,54,Decision only,local_reversal
+shifted,54,Local only,faithful
+shifted,54,Equal weights,faithful
+shifted,54,No local component,local_reversal
+shifted,55,PROXIMA,faithful
+shifted,55,Correlation,offset
+shifted,55,Decision only,local_reversal
+shifted,55,Local only,faithful
+shifted,55,Equal weights,faithful
+shifted,55,No local component,local_reversal
+shifted,56,PROXIMA,faithful
+shifted,56,Correlation,offset
+shifted,56,Decision only,local_reversal
+shifted,56,Local only,faithful
+shifted,56,Equal weights,faithful
+shifted,56,No local component,local_reversal
+shifted,57,PROXIMA,faithful
+shifted,57,Correlation,local_reversal
+shifted,57,Decision only,local_reversal
+shifted,57,Local only,faithful
+shifted,57,Equal weights,faithful
+shifted,57,No local component,local_reversal
+shifted,58,PROXIMA,faithful
+shifted,58,Correlation,offset
+shifted,58,Decision only,local_reversal
+shifted,58,Local only,faithful
+shifted,58,Equal weights,faithful
+shifted,58,No local component,local_reversal
+shifted,59,PROXIMA,faithful
+shifted,59,Correlation,local_reversal
+shifted,59,Decision only,local_reversal
+shifted,59,Local only,faithful
+shifted,59,Equal weights,faithful
+shifted,59,No local component,local_reversal
+shifted,60,PROXIMA,faithful
+shifted,60,Correlation,offset
+shifted,60,Decision only,faithful
+shifted,60,Local only,faithful
+shifted,60,Equal weights,faithful
+shifted,60,No local component,local_reversal
+shifted,61,PROXIMA,faithful
+shifted,61,Correlation,local_reversal
+shifted,61,Decision only,local_reversal
+shifted,61,Local only,faithful
+shifted,61,Equal weights,faithful
+shifted,61,No local component,local_reversal
+shifted,62,PROXIMA,faithful
+shifted,62,Correlation,offset
+shifted,62,Decision only,local_reversal
+shifted,62,Local only,faithful
+shifted,62,Equal weights,faithful
+shifted,62,No local component,local_reversal
+shifted,63,PROXIMA,faithful
+shifted,63,Correlation,offset
+shifted,63,Decision only,local_reversal
+shifted,63,Local only,faithful
+shifted,63,Equal weights,faithful
+shifted,63,No local component,local_reversal
+shifted,64,PROXIMA,faithful
+shifted,64,Correlation,local_reversal
+shifted,64,Decision only,local_reversal
+shifted,64,Local only,faithful
+shifted,64,Equal weights,faithful
+shifted,64,No local component,local_reversal
+shifted,65,PROXIMA,faithful
+shifted,65,Correlation,local_reversal
+shifted,65,Decision only,local_reversal
+shifted,65,Local only,faithful
+shifted,65,Equal weights,faithful
+shifted,65,No local component,local_reversal
+shifted,66,PROXIMA,faithful
+shifted,66,Correlation,local_reversal
+shifted,66,Decision only,local_reversal
+shifted,66,Local only,faithful
+shifted,66,Equal weights,faithful
+shifted,66,No local component,local_reversal
+shifted,67,PROXIMA,faithful
+shifted,67,Correlation,offset
+shifted,67,Decision only,local_reversal
+shifted,67,Local only,faithful
+shifted,67,Equal weights,faithful
+shifted,67,No local component,local_reversal
+shifted,68,PROXIMA,faithful
+shifted,68,Correlation,local_reversal
+shifted,68,Decision only,local_reversal
+shifted,68,Local only,faithful
+shifted,68,Equal weights,faithful
+shifted,68,No local component,local_reversal
+shifted,69,PROXIMA,faithful
+shifted,69,Correlation,local_reversal
+shifted,69,Decision only,faithful
+shifted,69,Local only,faithful
+shifted,69,Equal weights,faithful
+shifted,69,No local component,local_reversal
+shifted,70,PROXIMA,faithful
+shifted,70,Correlation,offset
+shifted,70,Decision only,faithful
+shifted,70,Local only,faithful
+shifted,70,Equal weights,faithful
+shifted,70,No local component,local_reversal
+shifted,71,PROXIMA,faithful
+shifted,71,Correlation,offset
+shifted,71,Decision only,local_reversal
+shifted,71,Local only,faithful
+shifted,71,Equal weights,faithful
+shifted,71,No local component,local_reversal
+shifted,72,PROXIMA,faithful
+shifted,72,Correlation,local_reversal
+shifted,72,Decision only,local_reversal
+shifted,72,Local only,faithful
+shifted,72,Equal weights,faithful
+shifted,72,No local component,local_reversal
+shifted,73,PROXIMA,faithful
+shifted,73,Correlation,offset
+shifted,73,Decision only,faithful
+shifted,73,Local only,faithful
+shifted,73,Equal weights,faithful
+shifted,73,No local component,local_reversal
+shifted,74,PROXIMA,faithful
+shifted,74,Correlation,local_reversal
+shifted,74,Decision only,local_reversal
+shifted,74,Local only,faithful
+shifted,74,Equal weights,faithful
+shifted,74,No local component,local_reversal
+shifted,75,PROXIMA,faithful
+shifted,75,Correlation,local_reversal
+shifted,75,Decision only,local_reversal
+shifted,75,Local only,faithful
+shifted,75,Equal weights,faithful
+shifted,75,No local component,local_reversal
+shifted,76,PROXIMA,faithful
+shifted,76,Correlation,offset
+shifted,76,Decision only,faithful
+shifted,76,Local only,faithful
+shifted,76,Equal weights,faithful
+shifted,76,No local component,local_reversal
+shifted,77,PROXIMA,faithful
+shifted,77,Correlation,offset
+shifted,77,Decision only,faithful
+shifted,77,Local only,faithful
+shifted,77,Equal weights,faithful
+shifted,77,No local component,local_reversal
+shifted,78,PROXIMA,faithful
+shifted,78,Correlation,local_reversal
+shifted,78,Decision only,faithful
+shifted,78,Local only,faithful
+shifted,78,Equal weights,faithful
+shifted,78,No local component,faithful
+shifted,79,PROXIMA,faithful
+shifted,79,Correlation,local_reversal
+shifted,79,Decision only,faithful
+shifted,79,Local only,faithful
+shifted,79,Equal weights,faithful
+shifted,79,No local component,local_reversal
+shifted,80,PROXIMA,faithful
+shifted,80,Correlation,local_reversal
+shifted,80,Decision only,local_reversal
+shifted,80,Local only,faithful
+shifted,80,Equal weights,faithful
+shifted,80,No local component,local_reversal
+shifted,81,PROXIMA,faithful
+shifted,81,Correlation,local_reversal
+shifted,81,Decision only,faithful
+shifted,81,Local only,faithful
+shifted,81,Equal weights,faithful
+shifted,81,No local component,faithful
+shifted,82,PROXIMA,faithful
+shifted,82,Correlation,offset
+shifted,82,Decision only,faithful
+shifted,82,Local only,faithful
+shifted,82,Equal weights,faithful
+shifted,82,No local component,faithful
+shifted,83,PROXIMA,faithful
+shifted,83,Correlation,offset
+shifted,83,Decision only,local_reversal
+shifted,83,Local only,faithful
+shifted,83,Equal weights,faithful
+shifted,83,No local component,local_reversal
+shifted,84,PROXIMA,faithful
+shifted,84,Correlation,offset
+shifted,84,Decision only,local_reversal
+shifted,84,Local only,faithful
+shifted,84,Equal weights,faithful
+shifted,84,No local component,local_reversal
+shifted,85,PROXIMA,faithful
+shifted,85,Correlation,offset
+shifted,85,Decision only,local_reversal
+shifted,85,Local only,faithful
+shifted,85,Equal weights,faithful
+shifted,85,No local component,local_reversal
+shifted,86,PROXIMA,faithful
+shifted,86,Correlation,local_reversal
+shifted,86,Decision only,faithful
+shifted,86,Local only,faithful
+shifted,86,Equal weights,faithful
+shifted,86,No local component,faithful
+shifted,87,PROXIMA,faithful
+shifted,87,Correlation,local_reversal
+shifted,87,Decision only,local_reversal
+shifted,87,Local only,faithful
+shifted,87,Equal weights,faithful
+shifted,87,No local component,local_reversal
+shifted,88,PROXIMA,faithful
+shifted,88,Correlation,offset
+shifted,88,Decision only,local_reversal
+shifted,88,Local only,faithful
+shifted,88,Equal weights,faithful
+shifted,88,No local component,local_reversal
+shifted,89,PROXIMA,faithful
+shifted,89,Correlation,local_reversal
+shifted,89,Decision only,local_reversal
+shifted,89,Local only,faithful
+shifted,89,Equal weights,faithful
+shifted,89,No local component,local_reversal
+shifted,90,PROXIMA,faithful
+shifted,90,Correlation,local_reversal
+shifted,90,Decision only,local_reversal
+shifted,90,Local only,faithful
+shifted,90,Equal weights,faithful
+shifted,90,No local component,local_reversal
+shifted,91,PROXIMA,faithful
+shifted,91,Correlation,offset
+shifted,91,Decision only,faithful
+shifted,91,Local only,faithful
+shifted,91,Equal weights,faithful
+shifted,91,No local component,faithful
+shifted,92,PROXIMA,faithful
+shifted,92,Correlation,local_reversal
+shifted,92,Decision only,local_reversal
+shifted,92,Local only,faithful
+shifted,92,Equal weights,faithful
+shifted,92,No local component,local_reversal
+shifted,93,PROXIMA,faithful
+shifted,93,Correlation,local_reversal
+shifted,93,Decision only,local_reversal
+shifted,93,Local only,faithful
+shifted,93,Equal weights,faithful
+shifted,93,No local component,local_reversal
+shifted,94,PROXIMA,faithful
+shifted,94,Correlation,offset
+shifted,94,Decision only,faithful
+shifted,94,Local only,faithful
+shifted,94,Equal weights,faithful
+shifted,94,No local component,local_reversal
+shifted,95,PROXIMA,faithful
+shifted,95,Correlation,offset
+shifted,95,Decision only,local_reversal
+shifted,95,Local only,faithful
+shifted,95,Equal weights,faithful
+shifted,95,No local component,local_reversal
+shifted,96,PROXIMA,faithful
+shifted,96,Correlation,offset
+shifted,96,Decision only,local_reversal
+shifted,96,Local only,faithful
+shifted,96,Equal weights,faithful
+shifted,96,No local component,local_reversal
+shifted,97,PROXIMA,faithful
+shifted,97,Correlation,local_reversal
+shifted,97,Decision only,local_reversal
+shifted,97,Local only,faithful
+shifted,97,Equal weights,faithful
+shifted,97,No local component,local_reversal
+shifted,98,PROXIMA,faithful
+shifted,98,Correlation,offset
+shifted,98,Decision only,local_reversal
+shifted,98,Local only,faithful
+shifted,98,Equal weights,faithful
+shifted,98,No local component,local_reversal
+shifted,99,PROXIMA,faithful
+shifted,99,Correlation,local_reversal
+shifted,99,Decision only,local_reversal
+shifted,99,Local only,faithful
+shifted,99,Equal weights,faithful
+shifted,99,No local component,local_reversal

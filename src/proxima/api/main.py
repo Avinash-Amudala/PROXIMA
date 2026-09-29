@@ -50,11 +50,14 @@ class GenerateDataRequest(BaseModel):
 
 class ProxyScoreResponse(BaseModel):
     metric: str
-    reliability: float
+    reliability: Optional[float]
     effect_corr: float
     directional_accuracy: float
-    fragility_rate: float
+    fragility_rate: Optional[float]
     n_experiments_scored: int
+    correlation_defined: bool
+    n_segment_cells: int
+    n_segment_cells_excluded: int
 
 
 class FragilitySegment(BaseModel):
@@ -69,8 +72,10 @@ class FragilitySegment(BaseModel):
 class DecisionResult(BaseModel):
     proxy_metric: str
     win_rate: float
-    false_positive_rate: float
-    false_negative_rate: float
+    precision: Optional[float]
+    n_experiments: int
+    false_positive_rate: Optional[float]
+    false_negative_rate: Optional[float]
     avg_regret: float
     total_shipped: int
     correct_ships: int
@@ -142,11 +147,14 @@ async def get_proxy_scores() -> List[ProxyScoreResponse]:
         for _, row in details.iterrows():
             scores.append(ProxyScoreResponse(
                 metric=row["metric"],
-                reliability=float(row["reliability"]),
+                reliability=float(row["reliability"]) if pd.notna(row["reliability"]) else None,
                 effect_corr=float(row["effect_corr"]),
                 directional_accuracy=float(row["directional_accuracy"]),
-                fragility_rate=float(row["fragility_rate"]),
-                n_experiments_scored=int(row["n_experiments_scored"])
+                fragility_rate=float(row["fragility_rate"]) if pd.notna(row["fragility_rate"]) else None,
+                n_experiments_scored=int(row["n_experiments_scored"]),
+                correlation_defined=bool(row["correlation_defined"]),
+                n_segment_cells=int(row["n_segment_cells"]),
+                n_segment_cells_excluded=int(row["n_segment_cells_excluded"])
             ))
         
         return scores
@@ -200,8 +208,10 @@ async def get_decision_simulation() -> List[DecisionResult]:
             results.append(DecisionResult(
                 proxy_metric=row["proxy_metric"],
                 win_rate=float(row["win_rate"]),
-                false_positive_rate=float(row["false_positive_rate"]),
-                false_negative_rate=float(row["false_negative_rate"]),
+                precision=float(row["precision"]) if pd.notna(row["precision"]) else None,
+                n_experiments=int(row["n_experiments"]),
+                false_positive_rate=float(row["false_positive_rate"]) if pd.notna(row["false_positive_rate"]) else None,
+                false_negative_rate=float(row["false_negative_rate"]) if pd.notna(row["false_negative_rate"]) else None,
                 avg_regret=float(row["avg_regret"]),
                 total_shipped=int(row["total_shipped"]),
                 correct_ships=int(row["correct_ships"]),
@@ -229,11 +239,14 @@ async def get_full_analysis() -> AnalysisResponse:
         for _, row in details.iterrows():
             proxy_scores.append(ProxyScoreResponse(
                 metric=row["metric"],
-                reliability=float(row["reliability"]),
+                reliability=float(row["reliability"]) if pd.notna(row["reliability"]) else None,
                 effect_corr=float(row["effect_corr"]),
                 directional_accuracy=float(row["directional_accuracy"]),
-                fragility_rate=float(row["fragility_rate"]),
-                n_experiments_scored=int(row["n_experiments_scored"])
+                fragility_rate=float(row["fragility_rate"]) if pd.notna(row["fragility_rate"]) else None,
+                n_experiments_scored=int(row["n_experiments_scored"]),
+                correlation_defined=bool(row["correlation_defined"]),
+                n_segment_cells=int(row["n_segment_cells"]),
+                n_segment_cells_excluded=int(row["n_segment_cells_excluded"])
             ))
 
         # Decision simulation
@@ -243,8 +256,10 @@ async def get_full_analysis() -> AnalysisResponse:
             decision_results.append(DecisionResult(
                 proxy_metric=row["proxy_metric"],
                 win_rate=float(row["win_rate"]),
-                false_positive_rate=float(row["false_positive_rate"]),
-                false_negative_rate=float(row["false_negative_rate"]),
+                precision=float(row["precision"]) if pd.notna(row["precision"]) else None,
+                n_experiments=int(row["n_experiments"]),
+                false_positive_rate=float(row["false_positive_rate"]) if pd.notna(row["false_positive_rate"]) else None,
+                false_negative_rate=float(row["false_negative_rate"]) if pd.notna(row["false_negative_rate"]) else None,
                 avg_regret=float(row["avg_regret"]),
                 total_shipped=int(row["total_shipped"]),
                 correct_ships=int(row["correct_ships"]),

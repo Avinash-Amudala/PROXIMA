@@ -142,11 +142,11 @@ class TestCompareDecisionStrategies:
         assert isinstance(result, pd.DataFrame)
         assert len(result) == len(EARLY_METRICS) + 1  # +1 for Oracle
     
-    def test_oracle_included(self, sample_data):
-        """Test Oracle strategy is included."""
+    def test_measured_reference_included(self, sample_data):
+        """Test measured outcome reference is included."""
         result = compare_decision_strategies(sample_data, EARLY_METRICS)
         
-        oracle_rows = result[result["proxy_metric"].str.contains("Oracle")]
+        oracle_rows = result[result["proxy_metric"].str.contains("Measured outcome reference")]
         assert len(oracle_rows) == 1
     
     def test_sorted_by_win_rate(self, sample_data):

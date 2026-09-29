@@ -1,3 +1,5 @@
+> **Superseded research results.** These historical claims are not the current validated evidence. See [the journal revision](paper/journal/README.md) and [correction audit](paper/journal/REVISION_AUDIT.md).
+
 # 🎉 PROXIMA PROJECT - FINAL RESULTS
 
 ## Executive Summary

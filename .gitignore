@@ -106,3 +106,13 @@ test_api.py
 *.lof
 *.lot
 
+
+# Current auditable journal artifact (raw source data remain ignored)
+!paper/journal/results/
+!paper/journal/results/**/
+!paper/journal/results/**/*.csv
+!paper/journal/results/**/*.json
+!paper/journal/generated/*.pdf
+!paper/journal/generated/*.png
+!paper/journal/*.png
+!paper/journal/main.pdf

@@ -1,0 +1,14 @@
+# Verified journal evaluation environment; Python 3.13
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+seaborn==0.13.2
+statsmodels==0.15.0
+fastapi==0.141.1
+uvicorn==0.54.0
+pydantic==2.13.5
+pytest==9.1.1
+pytest-cov==7.1.0
+httpx==0.28.1

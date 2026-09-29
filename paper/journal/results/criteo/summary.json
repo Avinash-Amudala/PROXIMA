@@ -1,0 +1,65 @@
+{
+  "evidence_type": "observed outcomes from a pooled randomized treatment comparison, randomly partitioned",
+  "source": "https://go.criteo.net/criteo-research-uplift-v2.1.csv.gz",
+  "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+  "total_rows": 13979592,
+  "pilot_rows": 100000,
+  "analysis_rows": 13879592,
+  "seed": 42,
+  "partitions": 50,
+  "segment_cutpoints": [
+    20.59941639940711,
+    22.959278930150173,
+    24.66706327923214
+  ],
+  "n_segments": 4,
+  "score": {
+    "reliability": 0.6703727381111592,
+    "effect_corr": 0.054575793703863625,
+    "correlation_defined": true,
+    "correlation_component": 0.5272878968519318,
+    "directional_accuracy": 1.0,
+    "fragility_rate": 0.23
+  },
+  "conditional_partition_bootstrap_ci": [
+    0.5720615385649053,
+    0.7573154540876604
+  ],
+  "visit_decisions": {
+    "agreement": 1.0,
+    "precision": 1.0,
+    "fpr": null,
+    "fnr": 0.0,
+    "regret": 0.0,
+    "tp": 50,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "n": 50
+  },
+  "always_ship": {
+    "agreement": 1.0,
+    "precision": 1.0,
+    "fpr": null,
+    "fnr": 0.0,
+    "regret": 0.0,
+    "tp": 50,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "n": 50
+  },
+  "never_ship": {
+    "agreement": 0.0,
+    "precision": null,
+    "fpr": null,
+    "fnr": 1.0,
+    "regret": 0.001134811481884024,
+    "tp": 0,
+    "fp": 0,
+    "fn": 50,
+    "tn": 0,
+    "n": 50
+  },
+  "note": "Intervals describe resampling partitions, not uncertainty over distinct interventions. Conversion is not an observed long-term retention outcome."
+}
